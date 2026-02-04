@@ -6,25 +6,48 @@
 /*   By: shierro <shierro@student.42urduliz.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 13:04:02 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/04 14:24:19 by shierro          ###   ########.fr       */
+/*   Updated: 2026/02/04 15:55:08 by shierro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf/ft_printf.h"
+#include "push_swap.h"
 
-int	ft_validate_nums(char **str_array)
+void	*ft_init_stacks(int size, char **numstr, t_stack *a, t_stack *b)
+{
+	int	i;
+
+	i = 0;
+	a->size = size;
+	a->type = 'a';
+	b->size = 0;
+	b->type = 'b';
+	a->nums = ft_calloc(size, sizeof(int));
+	if (!a)
+		return (NULL);
+	b->nums = ft_calloc(size, sizeof(int));
+	if (!b)
+		return (free(a), NULL);
+	while (numstr[i])
+	{
+		a->nums[i] = ft_atoi(numstr[i]);
+		i++;
+	}
+	return (a);
+}
+
+int	ft_validate_nums(char **numstr)
 {
 	int		size;
 	int		i;
 	char	*str;
 
 	size = 0;
-	if (!str_array)
+	if (!numstr)
 		return (0);
-	while (*str_array)
+	while (*numstr)
 	{
 		i = 0;
-		str = *str_array;
+		str = *numstr;
 		while (str[i])
 		{
 			if (!ft_isdigit(str[i]) && !(i == 0 && str[i] == '-'))
@@ -35,7 +58,7 @@ int	ft_validate_nums(char **str_array)
 			i++;
 		}
 		size++;
-		str_array++;
+		numstr++;
 	}
 	return (size);
 }
