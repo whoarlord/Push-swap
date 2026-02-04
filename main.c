@@ -6,7 +6,7 @@
 /*   By: shierro <shierro@student.42urduliz.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 13:04:02 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/04 17:38:37 by shierro          ###   ########.fr       */
+/*   Updated: 2026/02/04 18:07:06 by shierro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -154,19 +154,10 @@ t_manager	*ft_fill_manager(int argc, char *argv[])
 int	main(int argc, char *argv[])
 {
 	t_manager	*manager;
-	int			i;
+	int			size;
 
-	i = 1;
-	if (argc > 1)
-	{
-		while (i < argc)
-		{
-			write(1, argv[i], ft_strlen(argv[i]));
-			write(1, "\n", 1);
-			i++;
-		}
-		ft_validate_nums(&argv[1]);
-	}
 	manager = ft_fill_manager(argc, argv);
+	size = ft_validate_nums(manager->numbers);
+	ft_printf("nº de args: %d\n flags:%d\n", size, manager->algorithm);
 	ft_free_manager(manager);
 }
