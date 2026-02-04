@@ -6,7 +6,7 @@
 /*   By: iarrien- <iarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 18:05:05 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/04 18:05:22 by iarrien-         ###   ########.fr       */
+/*   Updated: 2026/02/04 18:21:13 by iarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_free_manager(t_manager *manager)
 {
-	while (*(manager->numbers))
+	while (manager->numbers && *(manager->numbers))
 	{
 		free(*(manager->numbers));
 		manager->numbers++;
