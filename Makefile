@@ -6,7 +6,7 @@
 #    By: iarrien- <iarrien-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/04 13:07:48 by iarrien-          #+#    #+#              #
-#    Updated: 2026/02/04 13:10:45 by iarrien-         ###   ########.fr        #
+#    Updated: 2026/02/04 13:13:02 by iarrien-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,12 +32,13 @@ $(NAME): $(OBJ) $(HEADERS)
 
 clean:
 	rm -f $(OBJ)
-	$(MAKE) clean -C ./libft
+	$(MAKE) clean -C ./printf
 
 fclean: clean
 	rm -f $(NAME)
-	$(MAKE) fclean -C ./libft
+	rm -f $(LIB)
+	$(MAKE) fclean -C ./printf
 
 re: fclean all
 
-.PHONY: all clean fclean re makelibft
+.PHONY: all clean fclean re
