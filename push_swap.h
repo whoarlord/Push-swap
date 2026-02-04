@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shierro <shierro@student.42urduliz.com>    +#+  +:+       +#+        */
+/*   By: iarrien- <iarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 13:26:15 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/04 15:38:06 by shierro          ###   ########.fr       */
+/*   Updated: 2026/02/04 18:06:18 by iarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,7 @@ typedef struct s_stack
 	int		size;
 	char	type;
 }			t_stack;
+void        *ft_init_stacks(int size, char **numstr, t_stack *a, t_stack *b);
+t_manager   *ft_fill_manager(int argc, char *argv[]);
+void ft_free_manager(t_manager *manager);
 #endif
