@@ -6,7 +6,7 @@
 /*   By: iarrien- <iarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/14 17:02:41 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/01/22 14:37:51 by iarrien-         ###   ########.fr       */
+/*   Updated: 2026/02/04 15:18:44 by iarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static int	ft_countchr(char const *s, char c)
 	return (result);
 }
 
-static void	ft_free(char **to_free)
+void	ft_free_split(char **to_free)
 {
 	int	i;
 
@@ -64,7 +64,7 @@ static int	ft_splitaux(char const *s, char c, char **result)
 		}
 		result[j] = ft_substr(s, i - word_length, word_length);
 		if (!result[j])
-			return (ft_free(result), 1);
+			return (ft_free_split(result), 1);
 		j++;
 	}
 	return (0);

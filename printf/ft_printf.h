@@ -6,7 +6,7 @@
 /*   By: iarrien- <iarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/29 13:13:32 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/01/30 11:35:44 by iarrien-         ###   ########.fr       */
+/*   Updated: 2026/02/04 13:21:19 by iarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 # define FT_PRINTF_H
 # include "./libft/libft.h"
 # include <stdarg.h>
-/* # include "limits.h"
-# include <stdio.h> */
 
 char	*ft_number_to_base(unsigned long long nb, int size, const char *base);
 int		ft_printstr(char *s);
