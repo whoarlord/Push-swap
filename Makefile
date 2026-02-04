@@ -6,7 +6,7 @@
 #    By: iarrien- <iarrien-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/04 13:07:48 by iarrien-          #+#    #+#              #
-#    Updated: 2026/02/04 15:25:13 by iarrien-         ###   ########.fr        #
+#    Updated: 2026/02/04 18:10:04 by iarrien-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,9 +16,9 @@ CC=cc
 CFLAGS= -Wall -Werror -Wextra -I. -g
 LIB=libftprintf.a
 
-SRC=main.c
+SRC=main.c ft_allocs.c ft_frees.c
 OBJ=$(SRC:.c=.o)
-HEADERS=./printf/ft_printf.h
+HEADERS=./printf/ft_printf.h push_swap.h
 
 all: $(NAME)
 
