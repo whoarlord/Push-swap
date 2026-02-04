@@ -6,7 +6,7 @@
 /*   By: shierro <shierro@student.42urduliz.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 13:04:02 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/04 13:34:39 by shierro          ###   ########.fr       */
+/*   Updated: 2026/02/04 14:24:19 by shierro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,6 @@ int	main(int argc, char *argv[])
 			write(1, "\n", 1);
 			i++;
 		}
-		ft_printf("Total numbers to sort: %d\n", ft_validate_nums(&argv[1]));
+		ft_validate_nums(&argv[1]);
 	}
 }
