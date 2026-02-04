@@ -6,7 +6,7 @@
 /*   By: iarrien- <iarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 17:50:23 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/04 18:24:52 by iarrien-         ###   ########.fr       */
+/*   Updated: 2026/02/04 18:35:26 by iarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,7 @@ static void	ft_strjoin_array(t_manager *manager, char *input)
 		return ;
 	new_array[size] = ft_strdup(input);
 	new_array[size + 1] = NULL;
-	free(manager->numbers);
+	ft_free_split(manager->numbers);
 	manager->numbers = new_array;
 }
 
