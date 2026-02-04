@@ -6,7 +6,7 @@
 /*   By: iarrien- <iarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 17:50:23 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/04 18:02:28 by iarrien-         ###   ########.fr       */
+/*   Updated: 2026/02/04 18:24:52 by iarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,11 +78,9 @@ static void	ft_fill_array(t_manager *manager, char **new_array)
 
 static void	ft_strjoin_array(t_manager *manager, char *input)
 {
-	int		i;
 	int		size;
 	char	**new_array;
 
-	i = 0;
 	size = 0;
 	while ((manager->numbers)[size])
 		size++;
@@ -108,14 +106,13 @@ t_manager	*ft_fill_manager(int argc, char *argv[])
 
 	i = 1;
 	manager = ft_calloc(1, sizeof(t_manager));
-	manager->numbers = ft_calloc(1, sizeof(char *));
 	if (!manager)
 		return (NULL);
 	while (i < argc || manager->error)
 	{
 		if (ft_strnstr(argv[i], "--", 2))
 			ft_which_flag(manager, argv[i]);
-		else if (!(manager->numbers)[0])
+		else if (!manager->numbers)
 			manager->numbers = ft_split(argv[i], ' ');
 		else
 			ft_strjoin_array(manager, argv[i]);
