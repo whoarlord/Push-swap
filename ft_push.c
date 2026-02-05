@@ -6,28 +6,33 @@
 /*   By: iarrien- <iarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 19:20:51 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/04 20:03:59 by iarrien-         ###   ########.fr       */
+/*   Updated: 2026/02/05 13:02:27 by iarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 // if direction is 0, move from top to bottom, if direction is 1 do it reverse
-void	ft_offset(t_stack *stack, int direction)
+static void	ft_offset(t_stack *stack, int direction)
 {
 	int	i;
 	int	temp;
 
 	i = 0;
-	while (i < stack->size)
+	while (i < stack->size - 1)
 	{
-		temp = stack->nums[stack->size - i];
-		stack->nums[stack->size - i] = stack->nums[stack->size - i - 1];
-		stack->nums[stack->size - i - 1] = temp;
-	}
-	if (direction)
-	{
-
+		if (direction)
+		{
+			temp = stack->nums[i];
+			stack->nums[i] = stack->nums[i + 1];
+			stack->nums[i + 1] = temp;
+			i++;
+			continue ;
+		}
+		temp = stack->nums[stack->size - 1 - i];
+		stack->nums[stack->size - 1 - i] = stack->nums[stack->size - 2 - i];
+		stack->nums[stack->size - 2 - i] = temp;
+		i++;
 	}
 }
 
@@ -40,4 +45,11 @@ char	*ft_push(t_stack *dest, t_stack *src)
 		return ("pb");
 	}
 	dest->size++;
+	ft_offset(dest, 0);
+	dest->nums[0] = src->nums[0];
+	ft_offset(src, 1);
+	src->size--;
+	if (dest->type == 'a')
+		return ("pa");
+	return ("pb");
 }
