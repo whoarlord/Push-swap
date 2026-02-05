@@ -6,7 +6,7 @@
 /*   By: shierro <shierro@student.42urduliz.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 13:04:02 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/05 11:29:19 by shierro          ###   ########.fr       */
+/*   Updated: 2026/02/05 11:32:01 by shierro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,5 @@ int	main(int argc, char *argv[])
 	ft_printf("nº de args: %d\n flags:%d\n", size, manager->algorithm);
 	ft_print_stack(a);
 	ft_print_stack(b);
-	ft_printf("Error de doble num? %d\n", ft_check_doubles(a->nums, a->size));
 	ft_free_all(manager, a, b);
 }

@@ -6,7 +6,7 @@
 /*   By: shierro <shierro@student.42urduliz.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 13:26:15 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/05 11:26:32 by shierro          ###   ########.fr       */
+/*   Updated: 2026/02/05 12:41:41 by shierro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,6 @@ void		ft_free_stack(t_stack *stack);
 void		ft_free_all(t_manager *manager, t_stack *a, t_stack *b);
 int			ft_validate_numinput(char **numstr);
 int			ft_check_doubles(int *nums, int size);
+float		compute_disorder(t_stack *a);
+void		ft_bubble_sort(t_stack *a, t_stack *b);
 #endif

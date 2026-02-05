@@ -6,7 +6,7 @@
 #    By: shierro <shierro@student.42urduliz.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/04 13:07:48 by iarrien-          #+#    #+#              #
-#    Updated: 2026/02/05 11:31:09 by shierro          ###   ########.fr        #
+#    Updated: 2026/02/05 12:41:09 by shierro          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CC=cc
 CFLAGS= -Wall -Werror -Wextra -I. -g
 LIB=libftprintf.a
 
-SRC=main.c ft_allocs.c ft_frees.c ft_validations.c
+SRC=main.c ft_allocs.c ft_frees.c ft_validations.c ft_utils.c ft_bubble.c
 OBJ=$(SRC:.c=.o)
 HEADERS=./printf/ft_printf.h push_swap.h
 
