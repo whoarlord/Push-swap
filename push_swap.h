@@ -6,7 +6,7 @@
 /*   By: iarrien- <iarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 13:26:15 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/04 18:06:18 by iarrien-         ###   ########.fr       */
+/*   Updated: 2026/02/04 19:34:30 by iarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,4 +31,6 @@ typedef struct s_stack
 void        *ft_init_stacks(int size, char **numstr, t_stack *a, t_stack *b);
 t_manager   *ft_fill_manager(int argc, char *argv[]);
 void ft_free_manager(t_manager *manager);
+char *ft_swap(t_stack *stack);
+char *ft_swap_both(t_stack *a, t_stack *b);
 #endif
