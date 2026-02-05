@@ -6,7 +6,7 @@
 /*   By: iarrien- <iarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 13:04:02 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/05 13:12:44 by iarrien-         ###   ########.fr       */
+/*   Updated: 2026/02/05 13:37:36 by iarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	main(int argc, char *argv[])
 		return (write(2, "Error\n", 6), ft_free_all(manager, a, b), 1);
 	ft_printf("nº de args: %d\n flags:%d\n", size, manager->algorithm);
 	ft_print_stack(a);
-	ft_rotate(a);
+	ft_rotate_reverse(a);
 	ft_print_stack(a);
 	ft_printf("Error de doble num? %d\n", ft_check_doubles(a->nums, a->size));
 	ft_free_all(manager, a, b);
