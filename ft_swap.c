@@ -6,7 +6,7 @@
 /*   By: iarrien- <iarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 19:10:28 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/04 19:18:09 by iarrien-         ###   ########.fr       */
+/*   Updated: 2026/02/05 12:35:22 by iarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char	*ft_swap(t_stack *stack)
 	temp = stack->nums[0];
 	stack->nums[0] = stack->nums[1];
 	stack->nums[1] = temp;
-	if (stack->type = 'a')
+	if (stack->type == 'a')
 		return ("sa");
 	return ("sb");
 }
