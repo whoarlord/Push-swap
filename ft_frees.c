@@ -6,7 +6,7 @@
 /*   By: shierro <shierro@student.42urduliz.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 18:05:05 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/04 19:30:18 by shierro          ###   ########.fr       */
+/*   Updated: 2026/02/05 11:30:52 by shierro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,8 @@
 
 void	ft_free_manager(t_manager *manager)
 {
-	char	**head;
-
-	head = manager->numbers;
-	while (manager->numbers && *(manager->numbers))
-	{
-		free(*(manager->numbers));
-		manager->numbers++;
-	}
-	free(head);
+	if (manager->numbers)
+		ft_free_split(manager->numbers);
 	free(manager);
 }
 
