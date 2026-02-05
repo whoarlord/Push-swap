@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_allocs.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iarrien- <iarrien-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: shierro <shierro@student.42urduliz.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 17:50:23 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/04 18:24:52 by iarrien-         ###   ########.fr       */
+/*   Updated: 2026/02/04 19:32:41 by shierro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	*ft_init_stacks(int size, char **numstr, t_stack *a, t_stack *b)
 		return (NULL);
 	b->nums = ft_calloc(size, sizeof(int));
 	if (!b)
-		return (free(a), NULL);
+		return (ft_free_stack(a), NULL);
 	while (numstr[i])
 	{
 		a->nums[i] = ft_atoi(numstr[i]);
@@ -95,7 +95,7 @@ static void	ft_strjoin_array(t_manager *manager, char *input)
 		return ;
 	new_array[size] = ft_strdup(input);
 	new_array[size + 1] = NULL;
-	free(manager->numbers);
+	ft_free_split(manager->numbers);
 	manager->numbers = new_array;
 }
 
