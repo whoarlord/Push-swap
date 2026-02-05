@@ -6,7 +6,7 @@
 /*   By: shierro <shierro@student.42urduliz.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 13:26:15 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/05 13:44:27 by shierro          ###   ########.fr       */
+/*   Updated: 2026/02/05 13:46:54 by shierro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,9 @@ char		*ft_swap(t_stack *stack);
 char		*ft_swap_both(t_stack *a, t_stack *b);
 char		*ft_push(t_stack *dest, t_stack *src);
 char		*ft_rotate(t_stack *stack);
+char		*ft_rotate_both(t_stack *a, t_stack *b);
+char		*ft_rotate_reverse(t_stack *stack);
+char		*ft_rotate_reverse_both(t_stack *a, t_stack *b);
 void		ft_free_manager(t_manager *manager);
 void		ft_free_stack(t_stack *stack);
 void		ft_free_all(t_manager *manager, t_stack *a, t_stack *b);
