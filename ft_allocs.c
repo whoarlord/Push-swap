@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_allocs.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iarrien- <iarrien-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: shierro <shierro@student.42urduliz.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 17:50:23 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/04 18:35:26 by iarrien-         ###   ########.fr       */
+/*   Updated: 2026/02/05 11:30:27 by shierro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	*ft_init_stacks(int size, char **numstr, t_stack *a, t_stack *b)
 		return (NULL);
 	b->nums = ft_calloc(size, sizeof(int));
 	if (!b)
-		return (free(a), NULL);
+		return (ft_free_stack(a), NULL);
 	while (numstr[i])
 	{
 		a->nums[i] = ft_atoi(numstr[i]);

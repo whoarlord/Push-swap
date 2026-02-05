@@ -6,7 +6,7 @@
 /*   By: iarrien- <iarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 13:26:15 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/04 19:34:30 by iarrien-         ###   ########.fr       */
+/*   Updated: 2026/02/05 12:18:45 by iarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,13 @@ typedef struct s_stack
 	int		size;
 	char	type;
 }			t_stack;
-void        *ft_init_stacks(int size, char **numstr, t_stack *a, t_stack *b);
-t_manager   *ft_fill_manager(int argc, char *argv[]);
-void ft_free_manager(t_manager *manager);
-char *ft_swap(t_stack *stack);
-char *ft_swap_both(t_stack *a, t_stack *b);
+void		*ft_init_stacks(int size, char **numstr, t_stack *a, t_stack *b);
+t_manager	*ft_fill_manager(int argc, char *argv[]);
+char		*ft_swap(t_stack *stack);
+char		*ft_swap_both(t_stack *a, t_stack *b);
+void		ft_free_manager(t_manager *manager);
+void		ft_free_stack(t_stack *stack);
+void		ft_free_all(t_manager *manager, t_stack *a, t_stack *b);
+int			ft_validate_numinput(char **numstr);
+int			ft_check_doubles(int *nums, int size);
 #endif
