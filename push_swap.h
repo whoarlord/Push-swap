@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iarrien- <iarrien-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: shierro <shierro@student.42urduliz.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 13:26:15 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/05 13:40:24 by iarrien-         ###   ########.fr       */
+/*   Updated: 2026/02/05 13:46:54 by shierro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ typedef struct s_stack
 	int		size;
 	char	type;
 }			t_stack;
+void		ft_print_stack(t_stack *stack);
 void		*ft_init_stacks(int size, char **numstr, t_stack *a, t_stack *b);
 t_manager	*ft_fill_manager(int argc, char *argv[]);
 char		*ft_swap(t_stack *stack);
@@ -43,5 +44,6 @@ void		ft_free_all(t_manager *manager, t_stack *a, t_stack *b);
 int			ft_validate_numinput(char **numstr);
 int			ft_check_doubles(int *nums, int size);
 float		compute_disorder(t_stack *a);
-void		ft_bubble_sort(t_stack *a, t_stack *b);
+void		ft_bubble_sort(t_stack *a);
+void		ft_selection_sort(t_stack *a, t_stack *b);
 #endif
