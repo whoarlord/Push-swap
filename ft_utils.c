@@ -6,16 +6,18 @@
 /*   By: shierro <shierro@student.42urduliz.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 12:31:47 by shierro           #+#    #+#             */
-/*   Updated: 2026/02/05 12:37:39 by shierro          ###   ########.fr       */
+/*   Updated: 2026/02/05 13:27:32 by shierro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdio.h>
 
 float	compute_disorder(t_stack *a)
 {
 	float	mistakes;
 	float	total_pairs;
+	float	result;
 	int		i;
 	int		j;
 
@@ -35,5 +37,8 @@ float	compute_disorder(t_stack *a)
 		}
 		i++;
 	}
-	return (mistakes / total_pairs);
+	result = mistakes / total_pairs;
+	printf("DISORDER = %f\n", result);
+	ft_print_stack(a);
+	return (result);
 }
