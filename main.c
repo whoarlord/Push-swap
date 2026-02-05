@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shierro <shierro@student.42urduliz.com>    +#+  +:+       +#+        */
+/*   By: iarrien- <iarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 13:04:02 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/05 13:46:29 by shierro          ###   ########.fr       */
+/*   Updated: 2026/02/05 16:38:37 by iarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,6 @@ int	main(int argc, char *argv[])
 	if (ft_check_doubles(a->nums, a->size))
 		return (write(2, "Error\n", 6), ft_free_all(manager, a, b), 1);
 	ft_printf("nº de args: %d\n flags:%d\n", size, manager->algorithm);
-	ft_print_stack(a);
-	ft_selection_sort(a, b);
-	ft_print_stack(a);
+	ft_radix_sort(a, b);
 	ft_free_all(manager, a, b);
 }
