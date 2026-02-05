@@ -6,14 +6,14 @@
 /*   By: iarrien- <iarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 19:20:51 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/05 13:00:38 by iarrien-         ###   ########.fr       */
+/*   Updated: 2026/02/05 13:02:27 by iarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 // if direction is 0, move from top to bottom, if direction is 1 do it reverse
-void	ft_offset(t_stack *stack, int direction)
+static void	ft_offset(t_stack *stack, int direction)
 {
 	int	i;
 	int	temp;
