@@ -6,43 +6,32 @@
 /*   By: iarrien- <iarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 16:06:14 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/05 17:20:01 by iarrien-         ###   ########.fr       */
+/*   Updated: 2026/02/06 11:36:36 by iarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	ft_biggest_number(int *array, int n, int size)
-{
-	int	i;
-	int	max;
-
-	i = 0;
-	max = 0;
-	while (i < size + 1)
-	{
-		if (array[i] > max)
-			max = array[i];
-		i++;
-	}
-	if (n == max)
-		return (1);
-	return (0);
-}
-
 static void	ft_fill_digits(int *array, t_stack *a, int bit)
 {
 	int	i;
+	int	equal;
 
 	i = 0;
+	equal = 0;
 	while (i < a->size)
 	{
 		if (a->nums[i] & (1 << bit))
+		{
 			array[i] = 1;
+			equal++;
+		}
 		else
-			array[i] = 1;
+			array[i] = 0;
 		i++;
 	}
+	if (equal == 0 || equal == a->size)
+		array[0] = -1;
 }
 
 static void	ft_push_to_a(t_stack *a, t_stack *b)
@@ -56,30 +45,45 @@ static void	ft_push_to_a(t_stack *a, t_stack *b)
 void	ft_radix_sort(t_stack *a, t_stack *b)
 {
 	int	*array;
-	int	power;
+	int	bit;
 	int	i;
 	int	size_before;
+	int	type;
 
 	array = ft_calloc(a->size, sizeof(int));
-	power = 0;
-	size_before = a->size - 1;
-	i = size_before;
+	bit = 0;
+	size_before = a->size;
 	while (compute_disorder(a))
 	{
-		ft_fill_digits(array, a, power);
+		i = 0;
+		ft_fill_digits(array, a, bit);
+		if (array[0] == -1)
+		{
+			bit++;
+			if (bit == 32)
+				break ;
+			continue ;
+		}
+		type = 0;
 		while (a->size > 0)
 		{
-			ft_printf("%s\n", ft_rotate_reverse(a));
-			if (ft_biggest_number(array, array[i], size_before))
+			if (array[i] == type)
 			{
 				ft_printf("%s\n", ft_push(b, a));
 				array[i] = -1;
 			}
-			i--;
-			if (i < 0)
-				i = size_before;
+			else
+				ft_printf("%s\n", ft_rotate(a));
+			i++;
+			if (i >= size_before)
+			{
+				type = 1;
+				i = 0;
+			}
 		}
 		ft_push_to_a(a, b);
-		power++;
+		bit++;
+		if (bit == 32)
+			break ;
 	}
 }

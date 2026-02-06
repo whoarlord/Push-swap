@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_utils.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shierro <shierro@student.42urduliz.com>    +#+  +:+       +#+        */
+/*   By: iarrien- <iarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 12:31:47 by shierro           #+#    #+#             */
-/*   Updated: 2026/02/05 13:27:32 by shierro          ###   ########.fr       */
+/*   Updated: 2026/02/06 11:38:52 by iarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ float	compute_disorder(t_stack *a)
 		i++;
 	}
 	result = mistakes / total_pairs;
-	printf("DISORDER = %f\n", result);
-	ft_print_stack(a);
+	// printf("DISORDER = %f\n", result);
+	// ft_print_stack(a);
 	return (result);
 }
