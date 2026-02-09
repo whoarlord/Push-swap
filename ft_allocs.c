@@ -6,7 +6,7 @@
 /*   By: iarrien- <iarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 17:50:23 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/09 14:30:40 by iarrien-         ###   ########.fr       */
+/*   Updated: 2026/02/09 17:08:43 by iarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,45 +62,6 @@ static void	ft_which_flag(t_manager *manager, char *flag)
 		manager->algorithm = 3;
 	else
 		manager->error = 1;
-}
-
-static void	ft_fill_array(t_manager *manager, char **new_array)
-{
-	int	i;
-
-	i = 0;
-	while ((manager->numbers)[i])
-	{
-		new_array[i] = ft_strdup((manager->numbers)[i]);
-		if (!new_array[i])
-			ft_free_all(manager, NULL, NULL, 1);
-		i++;
-	}
-}
-
-static void	ft_strjoin_array(t_manager *manager, char *input)
-{
-	int		size;
-	char	**new_array;
-
-	size = 0;
-	while ((manager->numbers)[size])
-		size++;
-	new_array = malloc((size + 2) * sizeof(char *));
-	if (!new_array)
-	{
-		manager->error = 1;
-		return ;
-	}
-	ft_fill_array(manager, new_array);
-	if (manager->error)
-		return ;
-	new_array[size] = ft_strdup(input);
-	if (!new_array[size])
-		ft_free_all(manager, NULL, NULL, 1);
-	new_array[size + 1] = NULL;
-	ft_free_split(manager->numbers);
-	manager->numbers = new_array;
 }
 
 t_manager	*ft_fill_manager(int argc, char *argv[])
