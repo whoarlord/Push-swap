@@ -6,7 +6,7 @@
 /*   By: iarrien- <iarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 12:30:37 by shierro           #+#    #+#             */
-/*   Updated: 2026/02/09 14:14:43 by iarrien-         ###   ########.fr       */
+/*   Updated: 2026/02/09 16:27:59 by iarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,27 +118,27 @@ void	ft_putmaxfirst(t_stack *stack, int max)
 		ft_printf("%s\n", ft_rotate_reverse(stack));
 }
 
-void	ft_interpolation_sort(t_stack *a, t_stack *b, t_manager *manager)
-{
-	t_borders	*borders;
+// void	ft_interpolation_sort(t_stack *a, t_stack *b, t_manager *manager)
+// {
+// 	t_borders	*borders;
 
-	borders = malloc(sizeof(t_borders));
-	if (!borders)
-	{
-		ft_free_all(manager, a, b, 1);
-		write(2, "Error\n", 6);
-		exit(1);
-	}
-	borders = ft_get_borders(a, borders);
-	ft_push_borders(a, b, borders);
-	while (a->size > 0)
-	{
-		if (a->nums[0] > b->nums[0] && a->nums[0] < b->nums[b->size - 1])
-			ft_printf("%s\n", ft_push(b, a));
-		else
-			ft_adjust_b_position(a->nums[0], b);
-	}
-	ft_putmaxfirst(b, borders->max);
-	while (b->size > 0)
-		ft_printf("%s\n", ft_push(a, b));
-}
+// 	borders = malloc(sizeof(t_borders));
+// 	if (!borders)
+// 	{
+// 		ft_free_all(manager, a, b);
+// 		write(2, "Error\n", 6);
+// 		exit(1);
+// 	}
+// 	borders = ft_get_borders(a, borders);
+// 	ft_push_borders(a, b, borders);
+// 	while (a->size > 0)
+// 	{
+// 		if (a->nums[0] > b->nums[0] && a->nums[0] < b->nums[b->size - 1])
+// 			ft_printf("%s\n", ft_push(b, a));
+// 		else
+// 			ft_adjust_b_position(a->nums[0], b);
+// 	}
+// 	ft_putmaxfirst(b, borders->max);
+// 	while (b->size > 0)
+// 		ft_printf("%s\n", ft_push(a, b));
+// }
