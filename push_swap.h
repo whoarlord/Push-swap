@@ -6,7 +6,7 @@
 /*   By: iarrien- <iarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 13:26:15 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/05 16:32:02 by iarrien-         ###   ########.fr       */
+/*   Updated: 2026/02/09 11:32:54 by iarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ typedef struct s_manager
 typedef struct s_stack
 {
 	int		*nums;
+	int		*index;
 	int		size;
 	char	type;
 }			t_stack;
@@ -44,7 +45,12 @@ void		ft_free_all(t_manager *manager, t_stack *a, t_stack *b);
 int			ft_validate_numinput(char **numstr);
 int			ft_check_doubles(int *nums, int size);
 float		compute_disorder(t_stack *a);
+float		compute_disorder_reverse(t_stack *a);
 void		ft_bubble_sort(t_stack *a);
 void		ft_selection_sort(t_stack *a, t_stack *b);
 void		ft_radix_sort(t_stack *a, t_stack *b);
+void		ft_push_array(int *dest, int *src, int size_dest, int size_src);
+void		ft_rotate_reverse_array(int *array, int size);
+void		ft_rotate_array(int *array, int size);
+int			ft_manage_array(int *array, t_stack *dest, t_stack *origin, int i);
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_frees.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shierro <shierro@student.42urduliz.com>    +#+  +:+       +#+        */
+/*   By: iarrien- <iarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 18:05:05 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/05 11:30:52 by shierro          ###   ########.fr       */
+/*   Updated: 2026/02/09 11:44:58 by iarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ void	ft_free_stack(t_stack *stack)
 		return ;
 	if (stack->nums)
 		free(stack->nums);
+	if (stack->index)
+		free(stack->index);
 	free(stack);
 }
 

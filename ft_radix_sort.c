@@ -6,7 +6,7 @@
 /*   By: iarrien- <iarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 16:06:14 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/06 11:36:36 by iarrien-         ###   ########.fr       */
+/*   Updated: 2026/02/09 11:35:21 by iarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,75 +15,109 @@
 static void	ft_fill_digits(int *array, t_stack *a, int bit)
 {
 	int	i;
-	int	equal;
+	int	zeros;
 
 	i = 0;
-	equal = 0;
+	zeros = 0;
 	while (i < a->size)
 	{
-		if (a->nums[i] & (1 << bit))
-		{
+		if (a->index[i] & (1 << bit))
 			array[i] = 1;
-			equal++;
-		}
 		else
+		{
 			array[i] = 0;
+			zeros++;
+		}
 		i++;
 	}
-	if (equal == 0 || equal == a->size)
+	if (zeros == 0 || zeros == a->size)
 		array[0] = -1;
 }
 
-static void	ft_push_to_a(t_stack *a, t_stack *b)
+static void	ft_radix_sort_to(t_stack *origin, t_stack *dest, int *bit)
 {
-	while (b->size > 0)
+	int	i;
+	int	size_before;
+	int	*array;
+
+	size_before = origin->size;
+	array = ft_calloc(origin->size, sizeof(int));
+	i = 0;
+	ft_fill_digits(array, origin, *bit);
+	if (array[0] == -1)
 	{
-		ft_printf("%s\n", ft_push(a, b));
+		*bit = *bit + 1;
+		return ;
+	}
+	while (origin->size > 0)
+	{
+		array[i] = ft_manage_array(array, dest, origin, i);
+		i++;
+		if (i >= size_before)
+			break ;
+	}
+	*bit = *bit + 1;
+	free(array);
+}
+
+static void	ft_push_all(t_stack *origin, t_stack *dest)
+{
+	int	i;
+
+	i = 0;
+	while (origin->size > 0)
+	{
+		ft_printf("%s\n", ft_push(dest, origin));
+		ft_push_array(dest->index, origin->index, dest->size, origin->size + 1);
+		i++;
+	}
+}
+
+static void	ft_fill_index(t_stack *stack, int i, int j, int count)
+{
+	int	min;
+	int	max;
+
+	min = stack->nums[0];
+	max = stack->nums[0];
+	while (count < stack->size + 1)
+	{
+		while (i < stack->size)
+		{
+			if (stack->index[i] == 0 && stack->nums[i] <= min)
+			{
+				min = stack->nums[i];
+				j = i;
+			}
+			if (stack->nums[i] > max)
+				max = stack->nums[i];
+			i++;
+		}
+		i = 0;
+		stack->index[j] = count;
+		j = 0;
+		min = max;
+		count++;
 	}
 }
 
 void	ft_radix_sort(t_stack *a, t_stack *b)
 {
-	int	*array;
 	int	bit;
 	int	i;
-	int	size_before;
-	int	type;
+	int	j;
+	int	count;
 
-	array = ft_calloc(a->size, sizeof(int));
 	bit = 0;
-	size_before = a->size;
+	i = 0;
+	j = 0;
+	count = 1;
+	a->index = ft_calloc(a->size, 4);
+	b->index = ft_calloc(a->size, 4);
+	ft_fill_index(a, i, j, count);
 	while (compute_disorder(a))
 	{
-		i = 0;
-		ft_fill_digits(array, a, bit);
-		if (array[0] == -1)
-		{
-			bit++;
-			if (bit == 32)
-				break ;
-			continue ;
-		}
-		type = 0;
-		while (a->size > 0)
-		{
-			if (array[i] == type)
-			{
-				ft_printf("%s\n", ft_push(b, a));
-				array[i] = -1;
-			}
-			else
-				ft_printf("%s\n", ft_rotate(a));
-			i++;
-			if (i >= size_before)
-			{
-				type = 1;
-				i = 0;
-			}
-		}
-		ft_push_to_a(a, b);
-		bit++;
-		if (bit == 32)
-			break ;
+		ft_radix_sort_to(a, b, &bit);
+		ft_push_all(b, a);
 	}
 }
