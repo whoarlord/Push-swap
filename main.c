@@ -6,7 +6,7 @@
 /*   By: iarrien- <iarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 13:04:02 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/06 11:38:39 by iarrien-         ###   ########.fr       */
+/*   Updated: 2026/02/09 11:51:23 by iarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ void	ft_print_stack(t_stack *stack)
 	int	i;
 
 	i = 0;
-	ft_printf("Stack type: %c\n", stack->type);
-	ft_printf("Size: %d\n", stack->size);
+	// ft_printf("Stack type: %c\n", stack->type);
+	// ft_printf("Size: %d\n", stack->size);
 	while (i < stack->size)
 		ft_printf("%d\n", stack->nums[i++]);
 }
@@ -46,6 +46,12 @@ int	main(int argc, char *argv[])
 	if (ft_check_doubles(a->nums, a->size))
 		return (write(2, "Error\n", 6), ft_free_all(manager, a, b), 1);
 	// ft_printf("nº de args: %d\n flags:%d\n", size, manager->algorithm);
-	ft_radix_sort(a, b);
-	ft_free_all(manager, a, b);
+	// ft_printf("STACK A:\n");
+	// ft_print_stack(a);
+	ft_turk(a, b, manager);
+	// ft_printf("STACK A:\n");
+	// ft_print_stack(a);
+	// ft_printf("STACK B:\n");
+	// ft_print_stack(b);
+	// ft_free_all(manager, a, b);
 }
