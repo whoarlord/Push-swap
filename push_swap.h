@@ -6,7 +6,7 @@
 /*   By: iarrien- <iarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 13:26:15 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/09 13:32:28 by iarrien-         ###   ########.fr       */
+/*   Updated: 2026/02/09 13:46:38 by iarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ char		*ft_rotate_reverse(t_stack *stack);
 char		*ft_rotate_reverse_both(t_stack *a, t_stack *b);
 void		ft_free_manager(t_manager *manager);
 void		ft_free_stack(t_stack *stack);
-void		ft_free_all(t_manager *manager, t_stack *a, t_stack *b);
+void		ft_free_all(t_manager *manager, t_stack *a, t_stack *b, int error);
 int			ft_validate_numinput(char **numstr);
 int			ft_check_doubles(int *nums, int size);
 float		compute_disorder(t_stack *a);

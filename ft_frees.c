@@ -6,7 +6,7 @@
 /*   By: iarrien- <iarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 18:05:05 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/09 11:44:58 by iarrien-         ###   ########.fr       */
+/*   Updated: 2026/02/09 13:48:36 by iarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,17 @@ void	ft_free_stack(t_stack *stack)
 	free(stack);
 }
 
-void	ft_free_all(t_manager *manager, t_stack *a, t_stack *b)
+void	ft_free_all(t_manager *manager, t_stack *a, t_stack *b, int error)
 {
-	ft_free_manager(manager);
-	ft_free_stack(a);
-	ft_free_stack(b);
+	if (manager)
+		ft_free_manager(manager);
+	if (a)
+		ft_free_stack(a);
+	if (b)
+		ft_free_stack(b);
+	if (error)
+	{
+		ft_printf("Error\n");
+		exit(1);
+	}
 }

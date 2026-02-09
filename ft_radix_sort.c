@@ -6,7 +6,7 @@
 /*   By: iarrien- <iarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 16:06:14 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/09 13:31:59 by iarrien-         ###   ########.fr       */
+/*   Updated: 2026/02/09 13:46:30 by iarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,7 +115,11 @@ void	ft_radix_sort(t_stack *a, t_stack *b, t_manager *manager)
 	j = 0;
 	count = 1;
 	a->index = ft_calloc(a->size, 4);
+	if (!a->index)
+		ft_free_all(manager, a, b, 1);
 	b->index = ft_calloc(a->size, 4);
+	if (!b->index)
+		ft_free_all(manager, a, b, 1);
 	bench = ft_calloc(sizeof(t_moves), 1);
 	if (manager->bench)
 		bench->bench = 1;
