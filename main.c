@@ -6,13 +6,13 @@
 /*   By: shierro <shierro@student.42urduliz.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 13:04:02 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/09 14:28:50 by shierro          ###   ########.fr       */
+/*   Updated: 2026/02/09 14:33:53 by shierro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_print_stack(t_stack *stack)
+/* void	ft_print_stack(t_stack *stack)
 {
 	int	i;
 
@@ -21,6 +21,23 @@ void	ft_print_stack(t_stack *stack)
 	// ft_printf("Size: %d\n", stack->size);
 	while (i < stack->size)
 		ft_printf("%d\n", stack->nums[i++]);
+} */
+static void	ft_check_allocs(t_manager *manager, t_stack **a, t_stack **b,
+		int size)
+{
+	if (size == 0)
+		ft_free_all(manager, *a, *b, 1);
+	*a = malloc(sizeof(t_stack));
+	if (!*a)
+		ft_free_all(manager, *a, *b, 1);
+	*b = malloc(sizeof(t_stack));
+	if (!*b)
+		ft_free_all(manager, *a, *b, 1);
+	*a = ft_init_stacks(size, manager->numbers, *a, *b);
+	if (!*a)
+		ft_free_all(manager, *a, *b, 1);
+	if (ft_check_doubles((*a)->nums, (*a)->size))
+		ft_free_all(manager, *a, *b, 1);
 }
 
 int	main(int argc, char *argv[])
@@ -35,22 +52,11 @@ int	main(int argc, char *argv[])
 	b = NULL;
 	manager = ft_fill_manager(argc, argv);
 	size = ft_validate_numinput(manager->numbers);
-	if (size == 0)
-		ft_free_all(manager, a, b, 1);
-	a = malloc(sizeof(t_stack));
-	if (!a)
-		ft_free_all(manager, a, b, 1);
-	b = malloc(sizeof(t_stack));
-	if (!b)
-		ft_free_all(manager, a, b, 1);
-	a = ft_init_stacks(size, manager->numbers, a, b);
-	if (!a)
-		ft_free_all(manager, a, b, 1);
-	if (ft_check_doubles(a->nums, a->size))
-		ft_free_all(manager, a, b, 1);
+	ft_check_allocs(manager, &a, &b, size);
 	disorder = compute_disorder(a);
 	if (manager->bench)
-		ft_put_in_bench(manager->algorithm, disorder);
+		if (ft_put_in_bench(manager->algorithm, disorder))
+			ft_free_all(manager, a, b, 1);
 	if (manager->algorithm == 2 || (manager->algorithm == 3 && disorder >= 0.5))
 		ft_radix_sort(a, b, manager);
 	else if (manager->algorithm == 1 || (manager->algorithm == 3

@@ -6,7 +6,7 @@
 /*   By: shierro <shierro@student.42urduliz.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 13:26:15 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/09 14:09:37 by shierro          ###   ########.fr       */
+/*   Updated: 2026/02/09 14:33:10 by shierro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,5 +102,5 @@ void		ft_set_b_head(t_stack *b);
 void		ft_set_limits(int num, t_stack *stack);
 void		ft_check_bench(t_moves *bench, char *result);
 void		ft_print_bench_moves(t_moves *bench);
-void		ft_put_in_bench(int algorithm, float disorder);
+int			ft_put_in_bench(int algorithm, float disorder);
 #endif
