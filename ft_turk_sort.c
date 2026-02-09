@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_turk.c                                          :+:      :+:    :+:   */
+/*   ft_turk_sort.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shierro <shierro@student.42urduliz.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/06 15:54:31 by shierro           #+#    #+#             */
-/*   Updated: 2026/02/09 13:53:09 by shierro          ###   ########.fr       */
+/*   Updated: 2026/02/09 14:24:57 by shierro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,18 +57,13 @@ void	ft_set_b_head(t_stack *b)
 	}
 }
 
-void	ft_turk(t_stack *a, t_stack *b, t_manager *manager)
+void	ft_turk_sort(t_stack *a, t_stack *b, t_manager *manager)
 {
 	t_moves	*moves;
-	int		head;
 
-	moves = malloc(sizeof(t_borders));
+	moves = ft_calloc(1, sizeof(t_moves));
 	if (!moves)
-	{
-		ft_free_all(manager, a, b);
-		write(2, "Error\n", 6);
-		exit(1);
-	}
+		ft_free_all(manager, a, b, 1);
 	if (a->nums[0] > a->nums[1])
 		ft_printf("%s\n", ft_swap(a));
 	ft_printf("%s\n", ft_push(b, a));
@@ -78,4 +73,5 @@ void	ft_turk(t_stack *a, t_stack *b, t_manager *manager)
 	ft_set_b_head(b);
 	while (b->size > 0)
 		ft_printf("%s\n", ft_push(a, b));
+	free(moves);
 }

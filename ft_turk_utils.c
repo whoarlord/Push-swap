@@ -6,7 +6,7 @@
 /*   By: shierro <shierro@student.42urduliz.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/09 13:45:04 by shierro           #+#    #+#             */
-/*   Updated: 2026/02/09 13:46:41 by shierro          ###   ########.fr       */
+/*   Updated: 2026/02/09 14:11:44 by shierro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,8 @@ int	ft_find_target_index(int num, t_stack *stack)
 		while (i < stack->size)
 		{
 			if (stack->nums[i] == stack->biggest)
-				i++;
+				return (i);
+			i++;
 		}
 	}
 	else
@@ -106,10 +107,10 @@ int	ft_calculate_moves(t_stack *a, t_stack *b, int index, t_moves *moves)
 
 void	ft_find_cheapest_moves(t_stack *a, t_stack *b, t_moves *moves)
 {
-	int i;
-	int cheapest_moves;
-	int j;
-	int movs;
+	int	i;
+	int	cheapest_moves;
+	int	j;
+	int	movs;
 
 	i = 1;
 	j = 0;

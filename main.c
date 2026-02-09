@@ -6,7 +6,7 @@
 /*   By: shierro <shierro@student.42urduliz.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 13:04:02 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/09 13:55:30 by shierro          ###   ########.fr       */
+/*   Updated: 2026/02/09 14:28:50 by shierro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,10 @@ int	main(int argc, char *argv[])
 	disorder = compute_disorder(a);
 	if (manager->bench)
 		ft_put_in_bench(manager->algorithm, disorder);
-	if (manager->algorithm == 2 || (manager->algorithm == 3 && disorder > 0.5))
+	if (manager->algorithm == 2 || (manager->algorithm == 3 && disorder >= 0.5))
 		ft_radix_sort(a, b, manager);
+	else if (manager->algorithm == 1 || (manager->algorithm == 3
+			&& disorder < 0.5 && disorder >= 0.2))
+		ft_turk_sort(a, b, manager);
 	ft_free_all(manager, a, b, 0);
 }
