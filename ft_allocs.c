@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_allocs.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shierro <shierro@student.42urduliz.com>    +#+  +:+       +#+        */
+/*   By: iarrien- <iarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 17:50:23 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/05 11:30:27 by shierro          ###   ########.fr       */
+/*   Updated: 2026/02/09 12:32:42 by iarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,6 +106,7 @@ t_manager	*ft_fill_manager(int argc, char *argv[])
 
 	i = 1;
 	manager = ft_calloc(1, sizeof(t_manager));
+	manager->algorithm = 3;
 	if (!manager)
 		return (NULL);
 	while (i < argc || manager->error)

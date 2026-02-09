@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shierro <shierro@student.42urduliz.com>    +#+  +:+       +#+        */
+/*   By: iarrien- <iarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 13:26:15 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/06 17:08:24 by shierro          ###   ########.fr       */
+/*   Updated: 2026/02/09 13:46:38 by iarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ typedef struct s_manager
 typedef struct s_stack
 {
 	int		*nums;
+	int		*index;
 	int		size;
 	char	type;
 	int		biggest;
@@ -43,14 +44,18 @@ typedef struct s_moves
 {
 	int		sa;
 	int		sb;
+	int		ss;
 	int		ra;
 	int		rb;
 	int		rra;
 	int		rrb;
 	int		rr;
 	int		rrr;
-}			t_moves;
-
+	int		bench;
+	int		pa;
+	int		pb;
+	int		all;
+}		t_moves;
 void		ft_printmoves(t_moves *moves);
 void		ft_print_stack(t_stack *stack);
 void		*ft_init_stacks(int size, char **numstr, t_stack *a, t_stack *b);
@@ -64,12 +69,19 @@ char		*ft_rotate_reverse(t_stack *stack);
 char		*ft_rotate_reverse_both(t_stack *a, t_stack *b);
 void		ft_free_manager(t_manager *manager);
 void		ft_free_stack(t_stack *stack);
-void		ft_free_all(t_manager *manager, t_stack *a, t_stack *b);
+void		ft_free_all(t_manager *manager, t_stack *a, t_stack *b, int error);
 int			ft_validate_numinput(char **numstr);
 int			ft_check_doubles(int *nums, int size);
 float		compute_disorder(t_stack *a);
+float		compute_disorder_reverse(t_stack *a);
 void		ft_bubble_sort(t_stack *a);
 void		ft_selection_sort(t_stack *a, t_stack *b);
+void		ft_radix_sort(t_stack *a, t_stack *b, t_manager *manager);
+void		ft_push_array(int *dest, int *src, int size_dest, int size_src);
+void		ft_rotate_reverse_array(int *array, int size);
+void		ft_rotate_array(int *array, int size);
+int			ft_manage_array(int *array, t_stack *dest,
+				t_stack *origin, t_moves *bench);
 t_borders	*ft_get_borders(t_stack *a, t_borders *borders);
 void		ft_min_closer_to_start(t_stack *a, t_stack *b, t_borders *borders);
 void		ft_max_closer_to_end(t_stack *a, t_stack *b, t_borders *borders);
@@ -85,5 +97,7 @@ int			ft_calculate_moves(t_stack *a, t_stack *b, int index,
 int			ft_find_target_index(int num, t_stack *stack);
 t_stack		*ft_set_first_extremes(t_stack *stack);
 void		ft_initmoves(t_moves *moves);
-
+void		ft_check_bench(t_moves *bench, char *result);
+void		ft_print_bench_moves(t_moves *bench);
+void		ft_put_in_bench(int algorithm, float disorder);
 #endif

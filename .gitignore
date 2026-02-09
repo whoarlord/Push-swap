@@ -2,3 +2,5 @@
 *.out
 *.a
 *.o
+*.txt
+checker_linux
