@@ -6,7 +6,7 @@
 /*   By: iarrien- <iarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 12:30:37 by shierro           #+#    #+#             */
-/*   Updated: 2026/02/09 11:51:03 by iarrien-         ###   ########.fr       */
+/*   Updated: 2026/02/09 14:14:43 by iarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,7 +125,7 @@ void	ft_interpolation_sort(t_stack *a, t_stack *b, t_manager *manager)
 	borders = malloc(sizeof(t_borders));
 	if (!borders)
 	{
-		ft_free_all(manager, a, b);
+		ft_free_all(manager, a, b, 1);
 		write(2, "Error\n", 6);
 		exit(1);
 	}
