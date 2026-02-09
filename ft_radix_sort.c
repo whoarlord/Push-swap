@@ -6,7 +6,7 @@
 /*   By: iarrien- <iarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 16:06:14 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/09 11:35:21 by iarrien-         ###   ########.fr       */
+/*   Updated: 2026/02/09 13:25:26 by iarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@ static void	ft_fill_digits(int *array, t_stack *a, int bit)
 		array[0] = -1;
 }
 
-static void	ft_radix_sort_to(t_stack *origin, t_stack *dest, int *bit)
+static void	ft_radix_sort_to(t_stack *origin, t_stack *dest,
+	int *bit, t_moves *bench)
 {
 	int	i;
 	int	size_before;
@@ -51,7 +52,7 @@ static void	ft_radix_sort_to(t_stack *origin, t_stack *dest, int *bit)
 	}
 	while (origin->size > 0)
 	{
-		array[i] = ft_manage_array(array, dest, origin, i);
+		array[i] = ft_manage_array(&array[i], dest, origin, bench);
 		i++;
 		if (i >= size_before)
 			break ;
@@ -60,14 +61,14 @@ static void	ft_radix_sort_to(t_stack *origin, t_stack *dest, int *bit)
 	free(array);
 }
 
-static void	ft_push_all(t_stack *origin, t_stack *dest)
+static void	ft_push_all(t_stack *origin, t_stack *dest, t_moves *bench)
 {
 	int	i;
 
 	i = 0;
 	while (origin->size > 0)
 	{
-		ft_printf("%s\n", ft_push(dest, origin));
+		ft_check_bench(bench, ft_push(dest, origin));
 		ft_push_array(dest->index, origin->index, dest->size, origin->size + 1);
 		i++;
 	}
@@ -103,10 +104,11 @@ static void	ft_fill_index(t_stack *stack, int i, int j, int count)
 
 void	ft_radix_sort(t_stack *a, t_stack *b)
 {
-	int	bit;
-	int	i;
-	int	j;
-	int	count;
+	int		bit;
+	int		i;
+	int		j;
+	int		count;
+	t_moves	*bench;
 
 	bit = 0;
 	i = 0;
@@ -114,10 +116,14 @@ void	ft_radix_sort(t_stack *a, t_stack *b)
 	count = 1;
 	a->index = ft_calloc(a->size, 4);
 	b->index = ft_calloc(a->size, 4);
+	bench = ft_calloc(sizeof(t_moves), 1);
+	bench->bench = 1;
 	ft_fill_index(a, i, j, count);
 	while (compute_disorder(a))
 	{
-		ft_radix_sort_to(a, b, &bit);
-		ft_push_all(b, a);
+		ft_radix_sort_to(a, b, &bit, bench);
+		ft_push_all(b, a, bench);
 	}
+	if (bench->bench)
+		ft_print_bench_moves(bench);
 }

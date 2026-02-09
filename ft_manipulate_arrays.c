@@ -6,7 +6,7 @@
 /*   By: iarrien- <iarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/09 10:29:02 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/09 11:35:44 by iarrien-         ###   ########.fr       */
+/*   Updated: 2026/02/09 13:02:03 by iarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,19 +57,19 @@ void	ft_push_array(int *dest, int *src, int size_dest, int size_src)
 	ft_offset_array(src, size_src, 1);
 }
 
-int	ft_manage_array(int *array, t_stack *dest, t_stack *origin, int i)
+int	ft_manage_array(int *array, t_stack *dest, t_stack *origin, t_moves *bench)
 {
-	if (array[i] == 0)
+	if (*array == 0)
 	{
-		ft_printf("%s\n", ft_push(dest, origin));
+		ft_check_bench(bench, ft_push(dest, origin));
 		ft_push_array(dest->index, origin->index,
 			dest->size, origin->size + 1);
 		return (-1);
 	}
-	else if (array[i] != -1)
+	else if (*array != -1)
 	{
-		ft_printf("%s\n", ft_rotate(origin));
+		ft_check_bench(bench, ft_rotate(origin));
 		ft_rotate_array(origin->index, origin->size);
 	}
-	return (array[i]);
+	return (*array);
 }

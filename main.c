@@ -6,7 +6,7 @@
 /*   By: iarrien- <iarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 13:04:02 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/09 11:51:23 by iarrien-         ###   ########.fr       */
+/*   Updated: 2026/02/09 13:19:12 by iarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ int	main(int argc, char *argv[])
 	t_stack		*a;
 	t_stack		*b;
 	int			size;
+	float		disorder;
 
 	manager = ft_fill_manager(argc, argv);
 	size = ft_validate_numinput(manager->numbers);
@@ -45,13 +46,11 @@ int	main(int argc, char *argv[])
 		return (write(2, "Error\n", 6), ft_free_all(manager, a, b), 1);
 	if (ft_check_doubles(a->nums, a->size))
 		return (write(2, "Error\n", 6), ft_free_all(manager, a, b), 1);
-	// ft_printf("nº de args: %d\n flags:%d\n", size, manager->algorithm);
-	// ft_printf("STACK A:\n");
-	// ft_print_stack(a);
-	ft_turk(a, b, manager);
-	// ft_printf("STACK A:\n");
-	// ft_print_stack(a);
-	// ft_printf("STACK B:\n");
-	// ft_print_stack(b);
-	// ft_free_all(manager, a, b);
+	disorder = compute_disorder(a);
+	if (manager->bench)
+		ft_put_in_bench(manager->algorithm, disorder);
+	if (manager->algorithm == 2 ||
+		(manager->algorithm == 3 && disorder > 0.5))
+		ft_radix_sort(a, b);
+
 }
