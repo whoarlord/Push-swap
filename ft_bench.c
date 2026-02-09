@@ -6,22 +6,26 @@
 /*   By: iarrien- <iarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/09 13:19:20 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/09 13:37:30 by iarrien-         ###   ########.fr       */
+/*   Updated: 2026/02/09 14:09:15 by iarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void ft_print_disorder(float disorder)
+static int	ft_print_disorder(float disorder)
 {
-	char *result;
+	char	*result;
 
 	disorder = disorder * 100000;
 	result = ft_itoa(disorder);
+	if (!result)
+		return (1);
 	write(2, result, 2);
 	write(2, ".", 1);
 	write(2, &result[2], 2);
 	ft_putstr_fd("%%", 2);
+	free(result);
+	return (0);
 }
 
 void	ft_print_bench_moves(t_moves *bench)
@@ -81,10 +85,14 @@ void	ft_check_bench(t_moves *bench, char *result)
 	bench->all++;
 }
 
-void	ft_put_in_bench(int algorithm, float disorder)
+int	ft_put_in_bench(int algorithm, float disorder)
 {
+	int	check;
+
 	ft_putstr_fd("[bench] disorder: ", 2);
-	ft_print_disorder(disorder);
+	check = ft_print_disorder(disorder);
+	if (check)
+		return (check);
 	write(2, "\n", 1);
 	ft_putstr_fd("[bench] algorithm: ", 2);
 	if (algorithm == 0)
@@ -103,5 +111,5 @@ void	ft_put_in_bench(int algorithm, float disorder)
 		else
 			ft_putstr_fd("O(n log n)", 2);
 	}
-	ft_putchar_fd('\n', 2);
+	return (ft_putchar_fd('\n', 2), check);
 }

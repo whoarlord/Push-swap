@@ -6,7 +6,7 @@
 /*   By: iarrien- <iarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 17:50:23 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/09 12:32:42 by iarrien-         ###   ########.fr       */
+/*   Updated: 2026/02/09 13:57:23 by iarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,11 +67,7 @@ static void	ft_fill_array(t_manager *manager, char **new_array)
 	{
 		new_array[i] = ft_strdup((manager->numbers)[i]);
 		if (!new_array[i])
-		{
-			ft_free_split(new_array);
-			manager->error = 1;
-			return ;
-		}
+			ft_free_all(manager, NULL, NULL, 1);
 		i++;
 	}
 }
@@ -94,6 +90,8 @@ static void	ft_strjoin_array(t_manager *manager, char *input)
 	if (manager->error)
 		return ;
 	new_array[size] = ft_strdup(input);
+	if (!new_array[size])
+		ft_free_all(manager, NULL, NULL, 1);
 	new_array[size + 1] = NULL;
 	ft_free_split(manager->numbers);
 	manager->numbers = new_array;
@@ -106,24 +104,24 @@ t_manager	*ft_fill_manager(int argc, char *argv[])
 
 	i = 1;
 	manager = ft_calloc(1, sizeof(t_manager));
-	manager->algorithm = 3;
 	if (!manager)
-		return (NULL);
+		exit(1);
+	manager->algorithm = 3;
 	while (i < argc || manager->error)
 	{
 		if (ft_strnstr(argv[i], "--", 2))
 			ft_which_flag(manager, argv[i]);
 		else if (!manager->numbers)
+		{
 			manager->numbers = ft_split(argv[i], ' ');
+			if (!manager->numbers)
+				ft_free_all(manager, NULL, NULL, 1);
+		}
 		else
 			ft_strjoin_array(manager, argv[i]);
 		i++;
 	}
 	if (manager->error)
-	{
-		write(2, "Error\n", 6);
-		ft_free_manager(manager);
-		exit(1);
-	}
+		ft_free_all(manager, NULL, NULL, 1);
 	return (manager);
 }

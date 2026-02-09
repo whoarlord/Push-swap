@@ -6,7 +6,7 @@
 /*   By: iarrien- <iarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 16:06:14 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/09 13:46:30 by iarrien-         ###   ########.fr       */
+/*   Updated: 2026/02/09 14:04:11 by iarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,4 +131,5 @@ void	ft_radix_sort(t_stack *a, t_stack *b, t_manager *manager)
 	}
 	if (bench->bench)
 		ft_print_bench_moves(bench);
+	free(bench);
 }
