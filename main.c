@@ -6,7 +6,7 @@
 /*   By: iarrien- <iarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 13:04:02 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/09 13:19:12 by iarrien-         ###   ########.fr       */
+/*   Updated: 2026/02/09 13:32:48 by iarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,6 @@ int	main(int argc, char *argv[])
 		ft_put_in_bench(manager->algorithm, disorder);
 	if (manager->algorithm == 2 ||
 		(manager->algorithm == 3 && disorder > 0.5))
-		ft_radix_sort(a, b);
+		ft_radix_sort(a, b, manager);
 
 }

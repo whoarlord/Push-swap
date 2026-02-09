@@ -6,7 +6,7 @@
 /*   By: iarrien- <iarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 13:26:15 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/09 13:26:01 by iarrien-         ###   ########.fr       */
+/*   Updated: 2026/02/09 13:32:28 by iarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ float		compute_disorder(t_stack *a);
 float		compute_disorder_reverse(t_stack *a);
 void		ft_bubble_sort(t_stack *a);
 void		ft_selection_sort(t_stack *a, t_stack *b);
-void		ft_radix_sort(t_stack *a, t_stack *b);
+void		ft_radix_sort(t_stack *a, t_stack *b, t_manager *manager);
 void		ft_push_array(int *dest, int *src, int size_dest, int size_src);
 void		ft_rotate_reverse_array(int *array, int size);
 void		ft_rotate_array(int *array, int size);

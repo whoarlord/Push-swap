@@ -6,7 +6,7 @@
 /*   By: iarrien- <iarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 16:06:14 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/09 13:25:26 by iarrien-         ###   ########.fr       */
+/*   Updated: 2026/02/09 13:31:59 by iarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,7 @@ static void	ft_fill_index(t_stack *stack, int i, int j, int count)
 	}
 }
 
-void	ft_radix_sort(t_stack *a, t_stack *b)
+void	ft_radix_sort(t_stack *a, t_stack *b, t_manager *manager)
 {
 	int		bit;
 	int		i;
@@ -117,7 +117,8 @@ void	ft_radix_sort(t_stack *a, t_stack *b)
 	a->index = ft_calloc(a->size, 4);
 	b->index = ft_calloc(a->size, 4);
 	bench = ft_calloc(sizeof(t_moves), 1);
-	bench->bench = 1;
+	if (manager->bench)
+		bench->bench = 1;
 	ft_fill_index(a, i, j, count);
 	while (compute_disorder(a))
 	{

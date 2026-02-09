@@ -6,7 +6,7 @@
 /*   By: iarrien- <iarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/09 13:19:20 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/09 13:26:41 by iarrien-         ###   ########.fr       */
+/*   Updated: 2026/02/09 13:37:30 by iarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,8 @@ void	ft_print_bench_moves(t_moves *bench)
 
 void	ft_check_bench(t_moves *bench, char *result)
 {
-	if (!(bench->bench))
-		ft_printf("%s\n", result);
-	else if (ft_strnstr(result, "pa", 2))
+	ft_printf("%s\n", result);
+	if (ft_strnstr(result, "pa", 2))
 		bench->pa++;
 	else if (ft_strnstr(result, "pb", 2))
 		bench->pb++;
