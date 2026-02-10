@@ -6,7 +6,7 @@
 /*   By: shierro <shierro@student.42urduliz.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 13:26:15 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/10 16:20:11 by shierro          ###   ########.fr       */
+/*   Updated: 2026/02/10 16:56:38 by shierro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,6 @@ typedef struct s_stack
 	int		biggest;
 	int		smallest;
 }			t_stack;
-
-typedef struct s_borders
-{
-	int		min;
-	int		minindex;
-	int		max;
-	int		maxindex;
-}			t_borders;
 
 typedef struct s_moves
 {
@@ -89,7 +81,6 @@ void		ft_rotate_reverse_array(int *array, int size);
 void		ft_rotate_array(int *array, int size);
 int			ft_manage_array(int *array, t_stack *dest, t_stack *origin,
 				t_moves *bench);
-t_borders	*ft_get_borders(t_stack *a, t_borders *borders);
 void		ft_adjust_b_position(int n, t_stack *b);
 void		ft_putmaxfirst(t_stack *stack, int max);
 void		ft_turk_sort(t_stack *a, t_stack *b, t_manager *manager);

@@ -6,7 +6,7 @@
 /*   By: shierro <shierro@student.42urduliz.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 13:04:02 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/10 16:25:19 by shierro          ###   ########.fr       */
+/*   Updated: 2026/02/10 16:45:42 by shierro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,10 +63,10 @@ int	main(int argc, char *argv[])
 			ft_free_all(manager, a, b, 1);
 	if (manager->algorithm == 2 || (manager->algorithm == 3 && disorder >= 0.5))
 		ft_radix_sort(a, b, manager);
-	else if (manager->algorithm == 1 || (manager->algorithm == 3
-			&& disorder < 0.5 && disorder >= 0.2))
+	else if (manager->algorithm == 0 || (manager->algorithm == 3
+			&& disorder < 0.2))
 		ft_turk_sort(a, b, manager);
 	// ft_fill_index_array(a);
-	ft_print_stack(a);
+	// ft_print_stack(a);
 	ft_free_all(manager, a, b, 0);
 }
