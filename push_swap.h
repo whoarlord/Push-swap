@@ -6,7 +6,7 @@
 /*   By: shierro <shierro@student.42urduliz.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 13:26:15 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/10 16:08:57 by shierro          ###   ########.fr       */
+/*   Updated: 2026/02/10 16:20:11 by shierro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,4 +110,5 @@ void		ft_merge(t_indexed_num *left, t_indexed_num *right,
 				t_indexed_num *tmp, int size);
 void		ft_copy_to_src(t_indexed_num *src, t_indexed_num *tmp, int size);
 void		ft_print_array(t_indexed_num *array, int size);
+void		ft_strjoin_array(t_manager *manager, char *input);
 #endif
