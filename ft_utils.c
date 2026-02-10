@@ -3,13 +3,12 @@
 /*                                                        :::      ::::::::   */
 /*   ft_utils.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iarrien- <iarrien-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: shierro <shierro@student.42urduliz.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 12:31:47 by shierro           #+#    #+#             */
-/*   Updated: 2026/02/09 11:55:37 by iarrien-         ###   ########.fr       */
+/*   Updated: 2026/02/09 14:48:21 by shierro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "push_swap.h"
 #include <stdio.h>
@@ -58,8 +57,6 @@ float	compute_disorder(t_stack *a)
 		i++;
 	}
 	result = mistakes / total_pairs;
-	// printf("DISORDER = %f\n", result);
-	// ft_print_stack(a);
 	return (result);
 }
 
@@ -88,7 +85,5 @@ float	compute_disorder_reverse(t_stack *a)
 		i++;
 	}
 	result = mistakes / total_pairs;
-	// printf("DISORDER = %f\n", result);
-	// ft_print_stack(a);
 	return (result);
 }
