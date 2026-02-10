@@ -6,7 +6,7 @@
 /*   By: shierro <shierro@student.42urduliz.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 13:26:15 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/10 17:44:12 by shierro          ###   ########.fr       */
+/*   Updated: 2026/02/10 18:21:59 by shierro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,7 @@ void		ft_bubble_sort(t_stack *a);
 void		ft_selection_sort(t_stack *a, t_stack *b);
 void		ft_radix_sort(t_stack *a, t_stack *b, t_manager *manager);
 void		ft_push_array(int *dest, int *src, int size_dest, int size_src);
+void		ft_swap_array(int *array, int size);
 void		ft_rotate_reverse_array(int *array, int size);
 void		ft_rotate_array(int *array, int size);
 int			ft_manage_array(int *array, t_stack *dest, t_stack *origin,
@@ -110,4 +111,5 @@ void		ft_copy_to_src(t_indexed_num *src, t_indexed_num *tmp, int size);
 void		ft_print_array(t_indexed_num *array, int size);
 void		ft_strjoin_array(t_manager *manager, char *input);
 void		ft_chunk_sort(t_stack *a, t_stack *b, t_manager *manager);
+void		ft_range_sort(t_stack *a, t_stack *b, t_manager *manager);
 #endif

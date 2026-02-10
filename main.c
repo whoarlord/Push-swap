@@ -6,7 +6,7 @@
 /*   By: shierro <shierro@student.42urduliz.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 13:04:02 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/10 17:45:02 by shierro          ###   ########.fr       */
+/*   Updated: 2026/02/10 18:21:12 by shierro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ void	ft_print_stack(t_stack *stack)
 	int	i;
 
 	i = 0;
-	// ft_printf("Stack type: %c\n", stack->type);
-	// ft_printf("Size: %d\n", stack->size);
+	ft_printf("Stack type: %c\n", stack->type);
+	ft_printf("Size: %d\n", stack->size);
 	while (i < stack->size)
 		ft_printf("%d\n", stack->nums[i++]);
 	// i = 0;
@@ -61,14 +61,13 @@ int	main(int argc, char *argv[])
 	if (manager->bench)
 		if (ft_put_in_bench(manager->algorithm, disorder))
 			ft_free_all(manager, a, b, 1);
-	// if (manager->algorithm == 2 || (manager->algorithm == 3
-	// && disorder >= 0.5))
-	// 	ft_radix_sort(a, b, manager);
-	// else if (manager->algorithm == 0 || (manager->algorithm == 3
-	// 		&& disorder < 0.2))
-	// 	ft_turk_sort(a, b, manager);
-	ft_chunk_sort(a, b, manager);
-	// ft_fill_index_array(a);
-	// ft_print_stack(a);
+	if (manager->algorithm == 2 || (manager->algorithm == 3 && disorder >= 0.5))
+		ft_radix_sort(a, b, manager);
+	else if (manager->algorithm == 0 || (manager->algorithm == 3
+			&& disorder < 0.2))
+		ft_turk_sort(a, b, manager);
+	else if (manager->algorithm == 1 || (manager->algorithm == 3
+			&& disorder < 0.5 && disorder >= 0.2))
+		ft_range_sort(a, b, manager);
 	ft_free_all(manager, a, b, 0);
 }
