@@ -6,7 +6,7 @@
 /*   By: iarrien- <iarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 16:06:14 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/09 14:32:04 by iarrien-         ###   ########.fr       */
+/*   Updated: 2026/02/10 12:31:53 by iarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,32 +74,17 @@ static void	ft_push_all(t_stack *origin, t_stack *dest, t_moves *bench)
 	}
 }
 
-static void	ft_fill_index(t_stack *stack, int i, int j, int count)
+int	ft_calculate_bits(int size)
 {
-	int	min;
-	int	max;
+	int result;
 
-	min = stack->nums[0];
-	max = stack->nums[0];
-	while (count < stack->size + 1)
+	result = 1;
+	while (size > 1)
 	{
-		while (i < stack->size)
-		{
-			if (stack->index[i] == 0 && stack->nums[i] <= min)
-			{
-				min = stack->nums[i];
-				j = i;
-			}
-			if (stack->nums[i] > max)
-				max = stack->nums[i];
-			i++;
-		}
-		i = 0;
-		stack->index[j] = count;
-		j = 0;
-		min = max;
-		count++;
+		size = size / 2;
+		result++;
 	}
+	return (result);
 }
 
 void	ft_radix_sort(t_stack *a, t_stack *b, t_manager *manager)
@@ -115,13 +100,17 @@ void	ft_radix_sort(t_stack *a, t_stack *b, t_manager *manager)
 	j = 0;
 	count = 1;
 	bench = ft_calloc(sizeof(t_moves), 1);
+	if (!bench)
+		ft_free_all(manager, a, b, 1);
 	if (manager->bench)
 		bench->bench = 1;
 	ft_fill_index(a, i, j, count);
-	while (compute_disorder(a))
+	count = ft_calculate_bits(a->size);
+	while (i < count)
 	{
 		ft_radix_sort_to(a, b, &bit, bench);
 		ft_push_all(b, a, bench);
+		i++;
 	}
 	if (bench->bench)
 		ft_print_bench_moves(bench);

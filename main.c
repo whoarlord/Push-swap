@@ -3,25 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shierro <shierro@student.42urduliz.com>    +#+  +:+       +#+        */
+/*   By: iarrien- <iarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 13:04:02 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/09 14:33:53 by shierro          ###   ########.fr       */
+/*   Updated: 2026/02/10 14:02:40 by iarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/* void	ft_print_stack(t_stack *stack)
+void	ft_print_stack(t_stack *stack)
 {
 	int	i;
 
 	i = 0;
-	// ft_printf("Stack type: %c\n", stack->type);
-	// ft_printf("Size: %d\n", stack->size);
+	ft_printf("Stack type: %c\n", stack->type);
+	ft_printf("Size: %d\n", stack->size);
 	while (i < stack->size)
 		ft_printf("%d\n", stack->nums[i++]);
-} */
+}
 static void	ft_check_allocs(t_manager *manager, t_stack **a, t_stack **b,
 		int size)
 {
@@ -59,8 +59,10 @@ int	main(int argc, char *argv[])
 			ft_free_all(manager, a, b, 1);
 	if (manager->algorithm == 2 || (manager->algorithm == 3 && disorder >= 0.5))
 		ft_radix_sort(a, b, manager);
-	else if (manager->algorithm == 1 || (manager->algorithm == 3
-			&& disorder < 0.5 && disorder >= 0.2))
+	else if (manager->algorithm == 0 || (manager->algorithm == 3
+			&& disorder < 0.2))
 		ft_turk_sort(a, b, manager);
+	else if (manager->algorithm == 1 || (manager->algorithm == 3 && disorder < 0.5 && disorder >= 0.2))
+		ft_range_sort(a, b, manager);
 	ft_free_all(manager, a, b, 0);
 }

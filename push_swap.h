@@ -6,7 +6,7 @@
 /*   By: iarrien- <iarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 13:26:15 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/09 17:09:28 by iarrien-         ###   ########.fr       */
+/*   Updated: 2026/02/10 16:23:21 by iarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,10 +78,12 @@ void		ft_bubble_sort(t_stack *a);
 void		ft_selection_sort(t_stack *a, t_stack *b);
 void		ft_radix_sort(t_stack *a, t_stack *b, t_manager *manager);
 void		ft_push_array(int *dest, int *src, int size_dest, int size_src);
+void		ft_swap_array(int *array, int size);
 void		ft_rotate_reverse_array(int *array, int size);
 void		ft_rotate_array(int *array, int size);
 int			ft_manage_array(int *array, t_stack *dest, t_stack *origin,
 				t_moves *bench);
+void		ft_fill_index(t_stack *stack, int i, int j, int count);
 t_borders	*ft_get_borders(t_stack *a, t_borders *borders);
 void		ft_min_closer_to_start(t_stack *a, t_stack *b, t_borders *borders);
 void		ft_max_closer_to_end(t_stack *a, t_stack *b, t_borders *borders);
@@ -104,4 +106,5 @@ void		ft_check_bench(t_moves *bench, char *result);
 void		ft_print_bench_moves(t_moves *bench);
 int			ft_put_in_bench(int algorithm, float disorder);
 void		ft_strjoin_array(t_manager *manager, char *input);
+void		ft_range_sort(t_stack *a, t_stack *b, t_manager *manager);
 #endif
