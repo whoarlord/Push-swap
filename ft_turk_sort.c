@@ -6,13 +6,13 @@
 /*   By: shierro <shierro@student.42urduliz.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/06 15:54:31 by shierro           #+#    #+#             */
-/*   Updated: 2026/02/09 14:24:57 by shierro          ###   ########.fr       */
+/*   Updated: 2026/02/09 17:13:01 by shierro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_move_stacks(t_stack *a, t_stack *b, t_moves *moves)
+static void	ft_move_stacks(t_stack *a, t_stack *b, t_moves *moves)
 {
 	while (a->size > 0)
 	{
@@ -34,7 +34,7 @@ void	ft_move_stacks(t_stack *a, t_stack *b, t_moves *moves)
 	}
 }
 
-void	ft_set_b_head(t_stack *b)
+static void	ft_set_b_head(t_stack *b)
 {
 	int	head;
 
