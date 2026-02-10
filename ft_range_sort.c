@@ -6,7 +6,7 @@
 /*   By: iarrien- <iarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 12:29:41 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/10 17:39:33 by iarrien-         ###   ########.fr       */
+/*   Updated: 2026/02/10 17:53:21 by iarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,24 +52,9 @@ static void	ft_push_chunk(t_stack *a, t_stack *b, int chunk, t_moves *bench)
 	}
 }
 
-static int	ft_manager_range_sort(t_stack *a, t_stack *b,
-	t_moves *bench, int state)
+static void	ft_manager_range_sort(t_stack *b, t_moves *bench, int state)
 {
-	int result;
-
-	result = 0;
-	if (b->index[0] > b->index[1])
-	{
-		ft_check_bench(bench, ft_swap(b));
-		ft_swap_array(b->index, b->size);
-	}
-	if (b->index[0] == b->size - 1)
-	{
-		ft_check_bench(bench, ft_push(a, b));
-		ft_push_array(a->index, b->index, a->size, b->size + 1);
-		result--;
-	}
-	else if (!state)
+	if (!state)
 	{
 		ft_check_bench(bench, ft_rotate(b));
 		ft_rotate_array(b->index, b->size);
@@ -79,15 +64,14 @@ static int	ft_manager_range_sort(t_stack *a, t_stack *b,
 		ft_check_bench(bench, ft_rotate_reverse(b));
 		ft_rotate_reverse_array(b->index, b->size);
 	}
-	return (result);
 }
 
 static void	ft_range_sort_aux(t_stack *a, t_stack *b, t_moves *bench)
 {
 	int	chunk;
 	int	sqrt;
-	int limit;
-	int state;
+	int	limit;
+	int	state;
 
 	chunk = 0;
 	state = 0;
@@ -112,7 +96,7 @@ static void	ft_range_sort_aux(t_stack *a, t_stack *b, t_moves *bench)
 			}
 		}
 		else
-			chunk = chunk - ft_manager_range_sort(a, b, bench, state);
+			ft_manager_range_sort(b, bench, state);
 		if (state == 1 && b->index[0] < limit)
 			state = 0;
 		if (b->index[0] < limit)
