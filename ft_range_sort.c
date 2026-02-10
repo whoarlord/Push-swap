@@ -6,7 +6,7 @@
 /*   By: iarrien- <iarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 12:29:41 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/10 17:28:09 by iarrien-         ###   ########.fr       */
+/*   Updated: 2026/02/10 17:39:33 by iarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ static int	ft_manager_range_sort(t_stack *a, t_stack *b,
 		ft_check_bench(bench, ft_swap(b));
 		ft_swap_array(b->index, b->size);
 	}
-	if (b->index[0] == b->size)
+	if (b->index[0] == b->size - 1)
 	{
 		ft_check_bench(bench, ft_push(a, b));
 		ft_push_array(a->index, b->index, a->size, b->size + 1);
@@ -89,7 +89,7 @@ static void	ft_range_sort_aux(t_stack *a, t_stack *b, t_moves *bench)
 	int limit;
 	int state;
 
-	chunk = 1;
+	chunk = 0;
 	state = 0;
 	sqrt = ft_sqrt(a->size);
 	while (a->size)
@@ -100,7 +100,7 @@ static void	ft_range_sort_aux(t_stack *a, t_stack *b, t_moves *bench)
 	limit = chunk - sqrt;
 	while (b->size > 0)
 	{
-		if (b->index[0] == b->size)
+		if (b->index[0] == b->size - 1)
 		{
 			ft_check_bench(bench, ft_push(a, b));
 			ft_push_array(a->index, b->index, a->size, b->size + 1);
@@ -124,20 +124,14 @@ static void	ft_range_sort_aux(t_stack *a, t_stack *b, t_moves *bench)
 
 void	ft_range_sort(t_stack *a, t_stack *b, t_manager *manager)
 {
-	int		i;
-	int		j;
-	int		count;
 	t_moves	*bench;
 
-	i = 0;
-	j = 0;
-	count = 1;
 	bench = ft_calloc(sizeof(t_moves), 1);
 	if (!bench)
 		ft_free_all(manager, a, b, 1);
 	if (manager->bench)
 		bench->bench = 1;
-	ft_fill_index(a, i, j, count);
+	ft_fill_index_array(a);
 	ft_range_sort_aux(a, b, bench);
 	if (bench->bench)
 		ft_print_bench_moves(bench);
