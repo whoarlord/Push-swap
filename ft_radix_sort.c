@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_radix_sort.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iarrien- <iarrien-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: shierro <shierro@student.42urduliz.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 16:06:14 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/09 14:32:04 by iarrien-         ###   ########.fr       */
+/*   Updated: 2026/02/10 16:25:54 by shierro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ static void	ft_fill_digits(int *array, t_stack *a, int bit)
 		array[0] = -1;
 }
 
-static void	ft_radix_sort_to(t_stack *origin, t_stack *dest,
-	int *bit, t_moves *bench)
+static void	ft_radix_sort_to(t_stack *origin, t_stack *dest, int *bit,
+		t_moves *bench)
 {
 	int	i;
 	int	size_before;
@@ -74,50 +74,51 @@ static void	ft_push_all(t_stack *origin, t_stack *dest, t_moves *bench)
 	}
 }
 
-static void	ft_fill_index(t_stack *stack, int i, int j, int count)
-{
-	int	min;
-	int	max;
+// static void	ft_fill_index(t_stack *stack, int i, int j, int count)
+// {
+// 	int	min;
+// 	int	max;
 
-	min = stack->nums[0];
-	max = stack->nums[0];
-	while (count < stack->size + 1)
-	{
-		while (i < stack->size)
-		{
-			if (stack->index[i] == 0 && stack->nums[i] <= min)
-			{
-				min = stack->nums[i];
-				j = i;
-			}
-			if (stack->nums[i] > max)
-				max = stack->nums[i];
-			i++;
-		}
-		i = 0;
-		stack->index[j] = count;
-		j = 0;
-		min = max;
-		count++;
-	}
-}
+// 	min = stack->nums[0];
+// 	max = stack->nums[0];
+// 	while (count < stack->size + 1)
+// 	{
+// 		while (i < stack->size)
+// 		{
+// 			if (stack->index[i] == 0 && stack->nums[i] <= min)
+// 			{
+// 				min = stack->nums[i];
+// 				j = i;
+// 			}
+// 			if (stack->nums[i] > max)
+// 				max = stack->nums[i];
+// 			i++;
+// 		}
+// 		i = 0;
+// 		stack->index[j] = count;
+// 		j = 0;
+// 		min = max;
+// 		count++;
+// 	}
+// }
 
 void	ft_radix_sort(t_stack *a, t_stack *b, t_manager *manager)
 {
 	int		bit;
-	int		i;
-	int		j;
-	int		count;
 	t_moves	*bench;
 
+	// int		i;
+	// int		j;
+	// int		count;
 	bit = 0;
-	i = 0;
-	j = 0;
-	count = 1;
+	// i = 0;
+	// j = 0;
+	// count = 1;
 	bench = ft_calloc(sizeof(t_moves), 1);
 	if (manager->bench)
 		bench->bench = 1;
-	ft_fill_index(a, i, j, count);
+	// ft_fill_index(a, i, j, count);
+	ft_fill_index_array(a);
 	while (compute_disorder(a))
 	{
 		ft_radix_sort_to(a, b, &bit, bench);
