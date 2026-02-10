@@ -6,7 +6,7 @@
 /*   By: iarrien- <iarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 16:06:14 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/10 12:31:53 by iarrien-         ###   ########.fr       */
+/*   Updated: 2026/02/10 17:32:18 by iarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ static void	ft_fill_digits(int *array, t_stack *a, int bit)
 		array[0] = -1;
 }
 
-static void	ft_radix_sort_to(t_stack *origin, t_stack *dest,
-	int *bit, t_moves *bench)
+static void	ft_radix_sort_to(t_stack *origin, t_stack *dest, int *bit,
+		t_moves *bench)
 {
 	int	i;
 	int	size_before;
@@ -76,7 +76,7 @@ static void	ft_push_all(t_stack *origin, t_stack *dest, t_moves *bench)
 
 int	ft_calculate_bits(int size)
 {
-	int result;
+	int	result;
 
 	result = 1;
 	while (size > 1)
@@ -90,21 +90,18 @@ int	ft_calculate_bits(int size)
 void	ft_radix_sort(t_stack *a, t_stack *b, t_manager *manager)
 {
 	int		bit;
-	int		i;
-	int		j;
-	int		count;
 	t_moves	*bench;
+	int		count;
+	int		i;
 
 	bit = 0;
 	i = 0;
-	j = 0;
-	count = 1;
 	bench = ft_calloc(sizeof(t_moves), 1);
 	if (!bench)
 		ft_free_all(manager, a, b, 1);
 	if (manager->bench)
 		bench->bench = 1;
-	ft_fill_index(a, i, j, count);
+	ft_fill_index_array(a);
 	count = ft_calculate_bits(a->size);
 	while (i < count)
 	{

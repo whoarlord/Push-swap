@@ -6,7 +6,7 @@
 /*   By: iarrien- <iarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 13:26:15 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/10 16:23:21 by iarrien-         ###   ########.fr       */
+/*   Updated: 2026/02/10 17:33:50 by iarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,6 @@ typedef struct s_stack
 	int		smallest;
 }			t_stack;
 
-typedef struct s_borders
-{
-	int		min;
-	int		minindex;
-	int		max;
-	int		maxindex;
-}			t_borders;
-
 typedef struct s_moves
 {
 	int		sa;
@@ -56,6 +48,13 @@ typedef struct s_moves
 	int		pb;
 	int		all;
 }			t_moves;
+
+typedef struct s_indexed_num
+{
+	int		num;
+	int		index;
+}			t_indexed_num;
+
 void		ft_printmoves(t_moves *moves);
 void		ft_print_stack(t_stack *stack);
 void		*ft_init_stacks(int size, char **numstr, t_stack *a, t_stack *b);
@@ -83,13 +82,6 @@ void		ft_rotate_reverse_array(int *array, int size);
 void		ft_rotate_array(int *array, int size);
 int			ft_manage_array(int *array, t_stack *dest, t_stack *origin,
 				t_moves *bench);
-void		ft_fill_index(t_stack *stack, int i, int j, int count);
-t_borders	*ft_get_borders(t_stack *a, t_borders *borders);
-void		ft_min_closer_to_start(t_stack *a, t_stack *b, t_borders *borders);
-void		ft_max_closer_to_end(t_stack *a, t_stack *b, t_borders *borders);
-void		ft_max_closer_to_start(t_stack *a, t_stack *b, t_borders *borders);
-void		ft_min_closer_to_end(t_stack *a, t_stack *b, t_borders *borders);
-void		ft_interpolation_sort(t_stack *a, t_stack *b, t_manager *manager);
 void		ft_adjust_b_position(int n, t_stack *b);
 void		ft_putmaxfirst(t_stack *stack, int max);
 void		ft_turk_sort(t_stack *a, t_stack *b, t_manager *manager);
@@ -99,12 +91,17 @@ int			ft_calculate_moves(t_stack *a, t_stack *b, int index,
 int			ft_find_target_index(int num, t_stack *stack);
 t_stack		*ft_set_first_extremes(t_stack *stack);
 void		ft_initmoves(t_moves *moves);
-void		ft_move_stacks(t_stack *a, t_stack *b, t_moves *moves);
-void		ft_set_b_head(t_stack *b);
 void		ft_set_limits(int num, t_stack *stack);
 void		ft_check_bench(t_moves *bench, char *result);
 void		ft_print_bench_moves(t_moves *bench);
 int			ft_put_in_bench(int algorithm, float disorder);
+t_stack		*ft_fill_index_array(t_stack *stack);
+void		ft_fill_indexed_num(int *src, t_indexed_num *inums, int size);
+void		ft_sort(t_indexed_num *src, t_indexed_num *tmp, int size);
+void		ft_merge(t_indexed_num *left, t_indexed_num *right,
+				t_indexed_num *tmp, int size);
+void		ft_copy_to_src(t_indexed_num *src, t_indexed_num *tmp, int size);
+void		ft_print_array(t_indexed_num *array, int size);
 void		ft_strjoin_array(t_manager *manager, char *input);
 void		ft_range_sort(t_stack *a, t_stack *b, t_manager *manager);
 #endif

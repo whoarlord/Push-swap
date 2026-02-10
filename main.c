@@ -6,7 +6,7 @@
 /*   By: iarrien- <iarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 13:04:02 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/10 14:02:40 by iarrien-         ###   ########.fr       */
+/*   Updated: 2026/02/10 17:32:43 by iarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,11 @@ void	ft_print_stack(t_stack *stack)
 	ft_printf("Size: %d\n", stack->size);
 	while (i < stack->size)
 		ft_printf("%d\n", stack->nums[i++]);
+	// i = 0;
+	// while (i < stack->size)
+	// 	ft_printf("%d\n", stack->index[i++]);
 }
+
 static void	ft_check_allocs(t_manager *manager, t_stack **a, t_stack **b,
 		int size)
 {
