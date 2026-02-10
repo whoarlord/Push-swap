@@ -6,7 +6,7 @@
 #    By: shierro <shierro@student.42urduliz.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/04 13:07:48 by iarrien-          #+#    #+#              #
-#    Updated: 2026/02/10 16:56:56 by shierro          ###   ########.fr        #
+#    Updated: 2026/02/10 17:45:19 by shierro          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ LIB=libftprintf.a
 
 SRC=main.c ft_allocs.c ft_frees.c ft_swap.c ft_validations.c ft_push.c ft_rotate.c ft_rotate_reverse.c\
 	ft_utils.c ft_radix_sort.c ft_manipulate_arrays.c ft_turk_sort.c ft_turk_utils.c\
-	ft_bench.c ft_split_aux.c ft_merge_sort.c
+	ft_bench.c ft_split_aux.c ft_merge_sort.c ft_chunker_temporal.c
 	
 OBJ=$(SRC:.c=.o)
 HEADERS=./printf/ft_printf.h push_swap.h
