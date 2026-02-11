@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_bench.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iarrien- <iarrien-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: shierro <shierro@student.42urduliz.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/09 13:19:20 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/09 14:09:15 by iarrien-         ###   ########.fr       */
+/*   Updated: 2026/02/11 14:48:07 by shierro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ int	ft_put_in_bench(int algorithm, float disorder)
 	if (algorithm == 0)
 		ft_putstr_fd("Simple / O(n^2)", 2);
 	if (algorithm == 1)
-		ft_putstr_fd("Medium / O(n√2)", 2);
+		ft_putstr_fd("Medium / O(n√n)", 2);
 	if (algorithm == 2)
 		ft_putstr_fd("Complex / O(n log n)", 2);
 	if (algorithm == 3)
@@ -107,7 +107,7 @@ int	ft_put_in_bench(int algorithm, float disorder)
 		if (disorder < 0.2)
 			ft_putstr_fd("O(n^2)", 2);
 		else if (disorder < 0.5)
-			ft_putstr_fd("O(n√2)", 2);
+			ft_putstr_fd("O(n√n)", 2);
 		else
 			ft_putstr_fd("O(n log n)", 2);
 	}
