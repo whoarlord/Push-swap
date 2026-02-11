@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iarrien- <iarrien-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: shierro <shierro@student.42urduliz.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 13:26:15 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/11 11:14:12 by iarrien-         ###   ########.fr       */
+/*   Updated: 2026/02/11 14:05:34 by shierro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,8 +80,6 @@ int			ft_validate_numinput(char **numstr);
 int			ft_check_doubles(int *nums, int size);
 float		compute_disorder(t_stack *a);
 float		compute_disorder_reverse(t_stack *a);
-void		ft_bubble_sort(t_stack *a);
-void		ft_selection_sort(t_stack *a, t_stack *b);
 void		ft_radix_sort(t_stack *a, t_stack *b, t_manager *manager);
 void		ft_push_array(int *dest, int *src, int size_dest, int size_src);
 void		ft_swap_array(int *array, int size);
@@ -110,6 +108,5 @@ void		ft_merge(t_indexed_num *left, t_indexed_num *right,
 void		ft_copy_to_src(t_indexed_num *src, t_indexed_num *tmp, int size);
 void		ft_print_array(t_indexed_num *array, int size);
 void		ft_strjoin_array(t_manager *manager, char *input);
-void		ft_chunk_sort(t_stack *a, t_stack *b, t_manager *manager);
 void		ft_range_sort(t_stack *a, t_stack *b, t_manager *manager);
 #endif

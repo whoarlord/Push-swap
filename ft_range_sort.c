@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_range_sort.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iarrien- <iarrien-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: shierro <shierro@student.42urduliz.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 12:29:41 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/11 12:33:45 by iarrien-         ###   ########.fr       */
+/*   Updated: 2026/02/11 16:08:59 by shierro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,63 +57,60 @@ static void	ft_push_chunk(t_stack *a, t_stack *b, int chunk, t_moves *bench)
 	}
 }
 
-static void	ft_manager_range_sort(t_stack *b, t_moves *bench, int state)
+static int	ft_find_max_sqrt(t_stack *stack, int sqrt)
 {
-	if (!state)
+	int	i;
+
+	i = 0;
+	while (i < sqrt)
 	{
-		ft_check_bench(bench, ft_rotate(b));
-		ft_rotate_array(b->index, b->size);
+		if (stack->index[i] == stack->size - 1)
+			return (i);
+		i++;
 	}
-	else if (state)
+	i = stack->size - 1 - sqrt;
+	while (i < stack->size)
 	{
-		ft_check_bench(bench, ft_rotate_reverse(b));
-		ft_rotate_reverse_array(b->index, b->size);
+		if (stack->index[i] == stack->size - 1)
+			return (i);
+		i++;
 	}
+	return (i);
 }
 
-static void	ft_range_sort_aux(t_stack *a, t_stack *b, t_moves *bench)
+static void	ft_push_max(t_stack *a, t_stack *b, t_moves *bench, int sqrt)
 {
-	int	chunk;
-	int	sqrt;
-	int	limit;
-	int	state;
+	int	i;
 
-	chunk = 0;
-	state = 0;
-	sqrt = ft_sqrt(a->size);
-	while (a->size)
+	i = 0;
+	i = ft_find_max_sqrt(b, sqrt);
+	if (i <= sqrt)
 	{
-		ft_push_chunk(a, b, chunk, bench);
-		chunk = chunk + sqrt;
-	}
-	limit = chunk - sqrt;
-	while (b->size > 0)
-	{
-		if (b->index[0] == b->size - 1)
+		while (i > 0)
 		{
-			ft_check_bench(bench, ft_push(a, b));
-			ft_push_array(a->index, b->index, a->size, b->size + 1);
-			chunk--;
-			if (chunk == limit)
-			{
-				limit = chunk - sqrt;
-				state = 0;
-			}
+			ft_check_bench(bench, ft_rotate(b));
+			ft_rotate_array(b->index, b->size);
+			i--;
 		}
-		else
-			ft_manager_range_sort(b, bench, state);
-		if (state == 1 && b->index[0] < limit)
-			state = 0;
-		if (b->index[0] < limit)
-			state = 1;
-		if (chunk == limit)
-			limit = chunk - sqrt;
 	}
+	else
+	{
+		while (i < b->size)
+		{
+			ft_check_bench(bench, ft_rotate_reverse(b));
+			ft_rotate_reverse_array(b->index, b->size);
+			i++;
+		}
+	}
+	ft_check_bench(bench, ft_push(a, b));
+	ft_push_array(a->index, b->index, a->size, b->size + 1);
 }
 
 void	ft_range_sort(t_stack *a, t_stack *b, t_manager *manager)
 {
 	t_moves	*bench;
+	int		chunk;
+	int		sqrt;
 
 	bench = ft_calloc(sizeof(t_moves), 1);
 	if (!bench)
@@ -121,7 +118,15 @@ void	ft_range_sort(t_stack *a, t_stack *b, t_manager *manager)
 	if (manager->bench)
 		bench->bench = 1;
 	ft_fill_index_array(a);
-	ft_range_sort_aux(a, b, bench);
+	chunk = 0;
+	sqrt = ft_sqrt(a->size);
+	while (a->size)
+	{
+		ft_push_chunk(a, b, chunk, bench);
+		chunk = chunk + sqrt;
+	}
+	while (b->size > 0)
+		ft_push_max(a, b, bench, sqrt);
 	if (bench->bench)
 		ft_print_bench_moves(bench);
 	free(bench);
