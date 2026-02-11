@@ -6,7 +6,7 @@
 /*   By: iarrien- <iarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 13:21:02 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/05 13:25:20 by iarrien-         ###   ########.fr       */
+/*   Updated: 2026/02/11 12:57:19 by iarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ char	*ft_rotate_reverse(t_stack *stack)
 	int	temp;
 
 	i = 0;
+	if (stack->size <= 1)
+		return ("\0");
 	while (i < stack->size - 1)
 	{
 		temp = stack->nums[stack->size - 1 - i];
