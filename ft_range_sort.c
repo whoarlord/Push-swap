@@ -6,7 +6,7 @@
 /*   By: iarrien- <iarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 12:29:41 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/10 20:30:28 by iarrien-         ###   ########.fr       */
+/*   Updated: 2026/02/11 12:33:45 by iarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,13 +42,13 @@ static void	ft_push_chunk(t_stack *a, t_stack *b, int chunk, t_moves *bench)
 	{
 		if (a->index[0] >= chunk && a->index[0] < until)
 		{
-			if (a->index[0] < ((until - chunk) / 2) + chunk)
+			ft_check_bench(bench, ft_push(b, a));
+			ft_push_array(b->index, a->index, b->size, a->size + 1);
+			if (b->index[0] < ((until - chunk) / 2) + chunk && b->size > 1)
 			{
 				ft_check_bench(bench, ft_rotate(b));
 				ft_rotate_array(b->index, b->size);
 			}
-			ft_check_bench(bench, ft_push(b, a));
-			ft_push_array(b->index, a->index, b->size, a->size + 1);
 			count++;
 			continue ;
 		}
