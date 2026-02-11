@@ -6,7 +6,7 @@
 /*   By: iarrien- <iarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/11 13:29:57 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/11 16:15:14 by iarrien-         ###   ########.fr       */
+/*   Updated: 2026/02/11 16:41:35 by iarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,19 @@
 
 static int	ft_do_moves(t_stack *a, t_stack *b, char *moves)
 {
-	if (!ft_strncmp(moves, "pa\n", 3))
+	if (!ft_strncmp(moves, "ra\n", 3))
+		return (ft_rotate(a), 3);
+	else if (!ft_strncmp(moves, "rb\n", 3))
+		return (ft_rotate(b), 3);
+	else if (!ft_strncmp(moves, "rr\n", 3))
+		return (ft_rotate_both(a, b), 3);
+	else if (!ft_strncmp(moves, "rra\n", 4))
+		return (ft_rotate_reverse(a), 4);
+	else if (!ft_strncmp(moves, "rrb\n", 4))
+		return (ft_rotate_reverse(b), 4);
+	else if (!ft_strncmp(moves, "rrr\n", 4))
+		return (ft_rotate_reverse_both(a, b), 4);
+	else if (!ft_strncmp(moves, "pa\n", 3))
 		return (ft_push(a, b), 3);
 	else if (!ft_strncmp(moves, "pb\n", 3))
 		return (ft_push(b, a), 3);
@@ -24,18 +36,6 @@ static int	ft_do_moves(t_stack *a, t_stack *b, char *moves)
 		return (ft_swap(b), 3);
 	else if (!ft_strncmp(moves, "ss\n", 3))
 		return (ft_swap_both(a, b), 3);
-	else if (!ft_strncmp(moves, "rra\n", 4))
-		return (ft_rotate_reverse(a), 4);
-	else if (!ft_strncmp(moves, "rrb\n", 4))
-		return (ft_rotate_reverse(b), 4);
-	else if (!ft_strncmp(moves, "rrr\n", 4))
-		return (ft_rotate_both(a, b), 4);
-	else if (!ft_strncmp(moves, "ra\n", 3))
-		return (ft_rotate(a), 3);
-	else if (!ft_strncmp(moves, "rb\n", 3))
-		return (ft_rotate(b), 3);
-	else if (!ft_strncmp(moves, "rr\n", 3))
-		return (ft_rotate_both(a, b), 3);
 	else
 		return (0);
 }

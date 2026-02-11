@@ -6,7 +6,7 @@
 /*   By: iarrien- <iarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/11 12:57:42 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/11 15:02:19 by iarrien-         ###   ########.fr       */
+/*   Updated: 2026/02/11 16:22:57 by iarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,18 +48,33 @@ static char	*ft_check_input(void)
 	return (result);
 }
 
-void	ft_print_stack(t_stack *stack)
+static t_manager	*ft_fill_manager_checker(int argc, char *argv[])
 {
-	int	i;
+	int			i;
+	t_manager	*manager;
 
-	i = 0;
-	ft_printf("Stack type: %c\n", stack->type);
-	ft_printf("Size: %d\n", stack->size);
-	while (i < stack->size)
-		ft_printf("%d\n", stack->nums[i++]);
-	// i = 0;
-	// while (i < stack->size)
-	// 	ft_printf("%d\n", stack->index[i++]);
+	i = 1;
+	manager = ft_calloc(1, sizeof(t_manager));
+	if (!manager)
+		exit(1);
+	manager->algorithm = 3;
+	while (i < argc || manager->error)
+	{
+		if (ft_strnstr(argv[i], "--", 2))
+			manager->error = 1;
+		else if (!manager->numbers)
+		{
+			manager->numbers = ft_split(argv[i], ' ');
+			if (!manager->numbers)
+				ft_free_all(manager, NULL, NULL, 1);
+		}
+		else
+			ft_strjoin_array(manager, argv[i]);
+		i++;
+	}
+	if (manager->error)
+		ft_free_all(manager, NULL, NULL, 1);
+	return (manager);
 }
 
 int	main(int argc, char *argv[])
@@ -74,7 +89,7 @@ int	main(int argc, char *argv[])
 	b = NULL;
 	if (argc <= 1)
 		return (1);
-	manager = ft_fill_manager(argc, argv);
+	manager = ft_fill_manager_checker(argc, argv);
 	size = ft_validate_numinput(manager->numbers);
 	ft_check_allocs(manager, &a, &b, size);
 	moves = ft_check_input();
@@ -83,7 +98,6 @@ int	main(int argc, char *argv[])
 		free(moves);
 		ft_free_all(manager, a, b, 1);
 	}
-	ft_print_stack(a);
 	if (b->size == 0 && compute_disorder(a) == 0)
 		ft_printf("OK\n");
 	else
