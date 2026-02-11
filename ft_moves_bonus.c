@@ -6,11 +6,11 @@
 /*   By: iarrien- <iarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/11 13:29:57 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/11 16:41:35 by iarrien-         ###   ########.fr       */
+/*   Updated: 2026/02/11 17:33:55 by iarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "checker_bonus.h"
 
 static int	ft_do_moves(t_stack *a, t_stack *b, char *moves)
 {
