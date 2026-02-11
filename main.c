@@ -6,7 +6,7 @@
 /*   By: iarrien- <iarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 13:04:02 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/10 17:32:43 by iarrien-         ###   ########.fr       */
+/*   Updated: 2026/02/11 11:00:32 by iarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,10 @@ static void	ft_check_allocs(t_manager *manager, t_stack **a, t_stack **b,
 {
 	if (size == 0)
 		ft_free_all(manager, *a, *b, 1);
-	*a = malloc(sizeof(t_stack));
+	*a = ft_calloc(1, sizeof(t_stack));
 	if (!*a)
 		ft_free_all(manager, *a, *b, 1);
-	*b = malloc(sizeof(t_stack));
+	*b = ft_calloc(1, sizeof(t_stack));
 	if (!*b)
 		ft_free_all(manager, *a, *b, 1);
 	*a = ft_init_stacks(size, manager->numbers, *a, *b);

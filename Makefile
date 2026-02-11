@@ -6,11 +6,11 @@
 #    By: iarrien- <iarrien-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/04 13:07:48 by iarrien-          #+#    #+#              #
-#    Updated: 2026/02/10 17:33:24 by iarrien-         ###   ########.fr        #
+#    Updated: 2026/02/11 10:49:06 by iarrien-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME=a.out
+NAME=push_swap
 
 CC=cc
 CFLAGS= -Wall -Werror -Wextra -I. -g
