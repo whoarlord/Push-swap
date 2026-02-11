@@ -6,7 +6,7 @@
 #    By: shierro <shierro@student.42urduliz.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/04 13:07:48 by iarrien-          #+#    #+#              #
-#    Updated: 2026/02/11 16:32:32 by shierro          ###   ########.fr        #
+#    Updated: 2026/02/11 16:49:10 by shierro          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ OBJ=$(SRC:.c=.o)
 BONUSOBJ=$(BONUSSRC:.c=.o)
 
 HEADERS=./printf/ft_printf.h push_swap.h
-BONUSHEADERS=checker.h
+BONUSHEADERS=checker_bonus.h
 
 all: $(NAME)
 
@@ -36,7 +36,7 @@ $(NAME): $(OBJ) $(HEADERS)
 	cp ./printf/libftprintf.a $(LIB)
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(LIB)
 
-bonus: $(BONUSOBJ) $(BONUSHEADERS)
+bonus: $(BONUSOBJ) $(BONUSHEADERS) $(HEADERS)
 	$(MAKE) -C ./printf
 	cp ./printf/libftprintf.a $(LIB)
 	$(CC) $(CFLAGS) -o $(BONUSNAME) $(BONUSOBJ) $(LIB)

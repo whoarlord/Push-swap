@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   main_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iarrien- <iarrien-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: shierro <shierro@student.42urduliz.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/11 12:57:42 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/11 15:02:19 by iarrien-         ###   ########.fr       */
+/*   Updated: 2026/02/11 16:48:30 by shierro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker.h"
+#include "checker_bonus.h"
 
 static void	ft_check_allocs(t_manager *manager, t_stack **a, t_stack **b,
 		int size)
@@ -78,6 +78,7 @@ int	main(int argc, char *argv[])
 	size = ft_validate_numinput(manager->numbers);
 	ft_check_allocs(manager, &a, &b, size);
 	moves = ft_check_input();
+	ft_printf("%s\n", moves);
 	if (ft_loop_moves(a, b, moves))
 	{
 		free(moves);
