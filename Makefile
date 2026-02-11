@@ -3,14 +3,14 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: shierro <shierro@student.42urduliz.com>    +#+  +:+       +#+         #
+#    By: iarrien- <iarrien-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/04 13:07:48 by iarrien-          #+#    #+#              #
-#    Updated: 2026/02/10 18:21:35 by shierro          ###   ########.fr        #
+#    Updated: 2026/02/11 11:14:04 by iarrien-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME=a.out
+NAME=push_swap
 
 CC=cc
 CFLAGS= -Wall -Werror -Wextra -I. -g

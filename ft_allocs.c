@@ -6,7 +6,7 @@
 /*   By: iarrien- <iarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 17:50:23 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/09 17:08:43 by iarrien-         ###   ########.fr       */
+/*   Updated: 2026/02/11 10:59:27 by iarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,10 @@ void	*ft_init_stacks(int size, char **numstr, t_stack *a, t_stack *b)
 	b->size = 0;
 	b->type = 'b';
 	a->nums = ft_calloc(size, sizeof(int));
-	if (!a)
+	if (!a->nums)
 		return (NULL);
 	b->nums = ft_calloc(size, sizeof(int));
-	if (!b)
+	if (!b->nums)
 		return (ft_free_stack(a), NULL);
 	while (numstr[i])
 	{
@@ -40,10 +40,10 @@ void	*ft_init_stacks(int size, char **numstr, t_stack *a, t_stack *b)
 		i++;
 	}
 	a->index = ft_calloc(size, sizeof(int));
-	if (!a)
+	if (!a->index)
 		return (ft_free_stack(a), ft_free_stack(b), NULL);
 	b->index = ft_calloc(size, sizeof(int));
-	if (!b)
+	if (!b->index)
 		return (ft_free_stack(a), ft_free_stack(b), NULL);
 	return (a);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shierro <shierro@student.42urduliz.com>    +#+  +:+       +#+        */
+/*   By: iarrien- <iarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 13:04:02 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/10 18:21:12 by shierro          ###   ########.fr       */
+/*   Updated: 2026/02/11 11:13:54 by iarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,10 @@ static void	ft_check_allocs(t_manager *manager, t_stack **a, t_stack **b,
 {
 	if (size == 0)
 		ft_free_all(manager, *a, *b, 1);
-	*a = malloc(sizeof(t_stack));
+	*a = ft_calloc(1, sizeof(t_stack));
 	if (!*a)
 		ft_free_all(manager, *a, *b, 1);
-	*b = malloc(sizeof(t_stack));
+	*b = ft_calloc(1, sizeof(t_stack));
 	if (!*b)
 		ft_free_all(manager, *a, *b, 1);
 	*a = ft_init_stacks(size, manager->numbers, *a, *b);

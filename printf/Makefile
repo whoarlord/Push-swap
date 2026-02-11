@@ -6,14 +6,14 @@
 #    By: iarrien- <iarrien-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/29 12:40:51 by iarrien-          #+#    #+#              #
-#    Updated: 2026/01/30 11:37:34 by iarrien-         ###   ########.fr        #
+#    Updated: 2026/02/10 18:04:29 by iarrien-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME=libftprintf.a
 
 CC=cc
-CFLAGS= -Wall -Werror -Wextra -I.
+CFLAGS= -I.
 LIB= ar rcs
 
 SRC=ft_printf.c ft_print_formats.c
