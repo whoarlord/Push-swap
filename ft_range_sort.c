@@ -6,7 +6,7 @@
 /*   By: shierro <shierro@student.42urduliz.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 12:29:41 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/11 13:54:12 by shierro          ###   ########.fr       */
+/*   Updated: 2026/02/11 16:08:59 by shierro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,7 +111,6 @@ void	ft_range_sort(t_stack *a, t_stack *b, t_manager *manager)
 	t_moves	*bench;
 	int		chunk;
 	int		sqrt;
-	int		i;
 
 	bench = ft_calloc(sizeof(t_moves), 1);
 	if (!bench)
