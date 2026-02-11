@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_frees.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shierro <shierro@student.42urduliz.com>    +#+  +:+       +#+        */
+/*   By: iarrien- <iarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 18:05:05 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/09 14:27:54 by shierro          ###   ########.fr       */
+/*   Updated: 2026/02/11 13:15:18 by iarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	ft_free_all(t_manager *manager, t_stack *a, t_stack *b, int error)
 		ft_free_stack(b);
 	if (error)
 	{
-		ft_printf("Error\n");
+		write(2, ("Error\n"), 6);
 		exit(1);
 	}
 }
