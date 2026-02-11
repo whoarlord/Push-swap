@@ -6,7 +6,7 @@
 /*   By: iarrien- <iarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 13:26:15 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/11 11:10:59 by iarrien-         ###   ########.fr       */
+/*   Updated: 2026/02/11 11:14:12 by iarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,13 @@ typedef struct s_indexed_num
 	int		num;
 	int		index;
 }			t_indexed_num;
+
+typedef struct s_chunk
+{
+	int		min;
+	int		max;
+	int		size;
+}			t_chunk;
 
 void		ft_printmoves(t_moves *moves);
 void		ft_print_stack(t_stack *stack);
@@ -103,5 +110,6 @@ void		ft_merge(t_indexed_num *left, t_indexed_num *right,
 void		ft_copy_to_src(t_indexed_num *src, t_indexed_num *tmp, int size);
 void		ft_print_array(t_indexed_num *array, int size);
 void		ft_strjoin_array(t_manager *manager, char *input);
+void		ft_chunk_sort(t_stack *a, t_stack *b, t_manager *manager);
 void		ft_range_sort(t_stack *a, t_stack *b, t_manager *manager);
 #endif

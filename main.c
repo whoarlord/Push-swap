@@ -6,7 +6,7 @@
 /*   By: iarrien- <iarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 13:04:02 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/11 11:00:32 by iarrien-         ###   ########.fr       */
+/*   Updated: 2026/02/11 11:13:54 by iarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,8 @@ int	main(int argc, char *argv[])
 	else if (manager->algorithm == 0 || (manager->algorithm == 3
 			&& disorder < 0.2))
 		ft_turk_sort(a, b, manager);
-	else if (manager->algorithm == 1 || (manager->algorithm == 3 && disorder < 0.5 && disorder >= 0.2))
+	else if (manager->algorithm == 1 || (manager->algorithm == 3
+			&& disorder < 0.5 && disorder >= 0.2))
 		ft_range_sort(a, b, manager);
 	ft_free_all(manager, a, b, 0);
 }
