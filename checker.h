@@ -6,7 +6,7 @@
 /*   By: iarrien- <iarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/11 13:10:53 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/11 14:21:54 by iarrien-         ###   ########.fr       */
+/*   Updated: 2026/02/11 16:44:37 by iarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,6 @@
 # include "printf/ft_printf.h"
 # include "printf/get_next_line.h"
 # include "push_swap.h"
-int ft_loop_moves(t_stack *a, t_stack *b, char *moves);
+
+int	ft_loop_moves(t_stack *a, t_stack *b, char *moves);
 #endif
