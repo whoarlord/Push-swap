@@ -6,7 +6,7 @@
 /*   By: shierro <shierro@student.42urduliz.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 12:22:14 by shierro           #+#    #+#             */
-/*   Updated: 2026/02/10 16:23:39 by shierro          ###   ########.fr       */
+/*   Updated: 2026/02/11 13:56:09 by shierro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,9 +107,7 @@ t_stack	*ft_fill_index_array(t_stack *stack)
 	if (!tmp)
 		return (free(inums), NULL);
 	ft_fill_indexed_num(stack->nums, inums, stack->size);
-	// ft_print_array(inums, stack->size);
 	ft_sort(inums, tmp, stack->size);
-	// ft_print_array(inums, stack->size);
 	while (i < stack->size)
 	{
 		stack->index[inums[i].index] = i;
