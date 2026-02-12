@@ -1,0 +1,8 @@
+.vscode
+*.out
+push_swap
+*.a
+*.o
+*.txt
+checker_linux
+checker
