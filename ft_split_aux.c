@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split_aux.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iarrien- <iarrien-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: shierro <shierro@student.42urduliz.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/09 17:08:56 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/09 17:16:45 by iarrien-         ###   ########.fr       */
+/*   Updated: 2026/02/13 11:16:59 by shierro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,9 @@ static char	**ft_fill_array(t_manager *manager, char **new_array)
 		i++;
 	len = len + i;
 	result = malloc(sizeof(char *) * (len + 1));
+	if (!result)
+		return (ft_free_split(new_array), ft_free_all(manager, NULL, NULL, 1),
+			NULL);
 	i = 0;
 	if (ft_join_splits(result, manager->numbers))
 		return (ft_free_split(new_array), ft_free_split(result), NULL);

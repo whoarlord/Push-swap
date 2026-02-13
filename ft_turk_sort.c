@@ -6,7 +6,7 @@
 /*   By: shierro <shierro@student.42urduliz.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/06 15:54:31 by shierro           #+#    #+#             */
-/*   Updated: 2026/02/10 16:49:51 by shierro          ###   ########.fr       */
+/*   Updated: 2026/02/13 11:48:58 by shierro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,14 +64,13 @@ void	ft_turk_sort(t_stack *a, t_stack *b, t_manager *manager)
 	t_moves	*bench;
 
 	bench = ft_calloc(sizeof(t_moves), 1);
+	if (!bench)
+		ft_free_all(manager, a, b, 1);
 	if (manager->bench)
 		bench->bench = 1;
 	moves = ft_calloc(1, sizeof(t_moves));
 	if (!moves)
-	{
-		free(bench);
-		ft_free_all(manager, a, b, 1);
-	}
+		return (free(bench), ft_free_all(manager, a, b, 1));
 	if (a->nums[0] > a->nums[1])
 		ft_check_bench(bench, ft_swap(a));
 	ft_check_bench(bench, ft_push(b, a));

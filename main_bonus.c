@@ -6,7 +6,7 @@
 /*   By: shierro <shierro@student.42urduliz.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/11 12:57:42 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/11 16:48:30 by shierro          ###   ########.fr       */
+/*   Updated: 2026/02/13 12:49:33 by shierro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,11 @@ static char	*ft_check_input(void)
 	char	*temp;
 
 	temp = ft_calloc(1, 1);
+	if (!temp)
+		return (NULL);
 	result = ft_calloc(1, 1);
+	if (!result)
+		return (free(temp), NULL);
 	while (temp)
 	{
 		free(temp);
@@ -46,20 +50,6 @@ static char	*ft_check_input(void)
 		result = ft_strjoin_line(result, temp);
 	}
 	return (result);
-}
-
-void	ft_print_stack(t_stack *stack)
-{
-	int	i;
-
-	i = 0;
-	ft_printf("Stack type: %c\n", stack->type);
-	ft_printf("Size: %d\n", stack->size);
-	while (i < stack->size)
-		ft_printf("%d\n", stack->nums[i++]);
-	// i = 0;
-	// while (i < stack->size)
-	// 	ft_printf("%d\n", stack->index[i++]);
 }
 
 int	main(int argc, char *argv[])
@@ -78,13 +68,11 @@ int	main(int argc, char *argv[])
 	size = ft_validate_numinput(manager->numbers);
 	ft_check_allocs(manager, &a, &b, size);
 	moves = ft_check_input();
+	if (!moves)
+		return (ft_free_all(manager, a, b, 1), 1);
 	ft_printf("%s\n", moves);
 	if (ft_loop_moves(a, b, moves))
-	{
-		free(moves);
-		ft_free_all(manager, a, b, 1);
-	}
-	ft_print_stack(a);
+		return (free(moves), ft_free_all(manager, a, b, 1), 1);
 	if (b->size == 0 && compute_disorder(a) == 0)
 		ft_printf("OK\n");
 	else

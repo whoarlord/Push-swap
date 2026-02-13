@@ -6,19 +6,11 @@
 /*   By: shierro <shierro@student.42urduliz.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 12:31:47 by shierro           #+#    #+#             */
-/*   Updated: 2026/02/11 14:00:48 by shierro          ###   ########.fr       */
+/*   Updated: 2026/02/13 11:28:27 by shierro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
-
-// void	ft_printmoves(t_moves *moves)
-// {
-// 	ft_printf("MOVES\n");
-// 	ft_printf("ra: %i\nrb: %i\nrr: %i\nrra: %i\nrrb: %i\nrrr: %i\n", moves->ra,
-// 		moves->rb, moves->rr, moves->rra, moves->rrb, moves->rrr);
-// }
 
 void	ft_initmoves(t_moves *moves)
 {

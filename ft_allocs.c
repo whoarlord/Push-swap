@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_allocs.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iarrien- <iarrien-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: shierro <shierro@student.42urduliz.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 17:50:23 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/11 10:59:27 by iarrien-         ###   ########.fr       */
+/*   Updated: 2026/02/13 11:27:04 by shierro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	*ft_init_stacks(int size, char **numstr, t_stack *a, t_stack *b)
 		return (NULL);
 	b->nums = ft_calloc(size, sizeof(int));
 	if (!b->nums)
-		return (ft_free_stack(a), NULL);
+		return (NULL);
 	while (numstr[i])
 	{
 		a->nums[i] = ft_atoi(numstr[i]);
@@ -41,10 +41,10 @@ void	*ft_init_stacks(int size, char **numstr, t_stack *a, t_stack *b)
 	}
 	a->index = ft_calloc(size, sizeof(int));
 	if (!a->index)
-		return (ft_free_stack(a), ft_free_stack(b), NULL);
+		return (NULL);
 	b->index = ft_calloc(size, sizeof(int));
 	if (!b->index)
-		return (ft_free_stack(a), ft_free_stack(b), NULL);
+		return (NULL);
 	return (a);
 }
 
@@ -72,9 +72,9 @@ t_manager	*ft_fill_manager(int argc, char *argv[])
 	i = 1;
 	manager = ft_calloc(1, sizeof(t_manager));
 	if (!manager)
-		exit(1);
+		ft_free_all(NULL, NULL, NULL, 1);
 	manager->algorithm = 3;
-	while (i < argc || manager->error)
+	while (i < argc && !manager->error)
 	{
 		if (ft_strnstr(argv[i], "--", 2))
 			ft_which_flag(manager, argv[i]);

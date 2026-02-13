@@ -6,7 +6,7 @@
 /*   By: shierro <shierro@student.42urduliz.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 11:21:56 by shierro           #+#    #+#             */
-/*   Updated: 2026/02/11 16:10:31 by shierro          ###   ########.fr       */
+/*   Updated: 2026/02/13 11:22:59 by shierro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,7 @@ int	ft_validate_numinput(char **numstr)
 		while (str[i])
 		{
 			if (!ft_isdigit(str[i]) && !(i == 0 && (str[i] == '-'
-						|| str[i] == '+')) && !(i > 0 && (str[i] == '-'
-						|| str[i] == '+') && str[i - 1] == ' '))
+						|| str[i] == '+')))
 				return (0);
 			i++;
 		}
