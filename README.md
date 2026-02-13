@@ -277,3 +277,7 @@ We also used AI-based tools to:
 - Debug specific implementation issues.
 - Clarify algorithmic complexity concepts.
 - Compare different sorting approaches and their theoretical performance.
+
+# Contributions
+
+Both of us have worked on implementing functions that are used in all the cases: *iarrien-* implemented the radix sort algorithm, the functions to collect the numbers for the different versions of the program input, the push swaps functions and bench flag options, and worked in most part of the checker (bonus part). *shierro* implemented the turk sort algorithm, the validation for the input and the merge sort for ordering indexes. All the other parts were done mostly together, implementing some of the range sort functions, deciding the way of ordering data with defining structs, etc.
