@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_validations.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shierro <shierro@student.42urduliz.com>    +#+  +:+       +#+        */
+/*   By: iarrien- <iarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 11:21:56 by shierro           #+#    #+#             */
-/*   Updated: 2026/02/13 11:22:59 by shierro          ###   ########.fr       */
+/*   Updated: 2026/02/13 13:15:21 by iarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int	ft_validate_numinput(char **numstr)
 		while (str[i])
 		{
 			if (!ft_isdigit(str[i]) && !(i == 0 && (str[i] == '-'
-						|| str[i] == '+')))
+						|| str[i] == '+') && str[i + 1] != '\0'))
 				return (0);
 			i++;
 		}
