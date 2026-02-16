@@ -6,7 +6,7 @@
 /*   By: iarrien- <iarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 13:04:02 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/16 17:39:03 by iarrien-         ###   ########.fr       */
+/*   Updated: 2026/02/16 17:46:57 by iarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,17 @@ static void	ft_check_allocs(t_manager *manager, t_stack **a, t_stack **b,
 static void	ft_manage_algorithm(t_stack *a, t_stack *b, t_manager *manager,
 		float disorder)
 {
-	if (manager->algorithm == 0 || (manager->algorithm == 3 && disorder < 0.2))
+	if (a->size == 3)
+		ft_sort_three_numbers(manager, a, b);
+	else if (manager->algorithm == 0 ||
+		(manager->algorithm == 3 && disorder < 0.2))
 		ft_selection_sort(a, b, manager);
 	else if (manager->algorithm == 1 || (manager->algorithm == 3
 			&& disorder < 0.5 && disorder >= 0.2))
 		ft_range_sort(a, b, manager);
 	else if (manager->algorithm == 2 || (manager->algorithm == 3
 			&& disorder >= 0.5))
-		ft_radix_sort(a, b, manager);
+		ft_turk_sort(a, b, manager);
 }
 
 int	main(int argc, char *argv[])
@@ -70,18 +73,6 @@ int	main(int argc, char *argv[])
 			ft_free_all(manager, a, b, 1);
 		ft_free_all(manager, a, b, 0);
 	}
-	if (a->size == 3)
-		ft_sort_three_numbers(manager, a, b);
-	else if (manager->algorithm == 0 || (manager->algorithm == 3
-			&& disorder < 0.2))
-		ft_turk_sort(a, b, manager);
-	else if (manager->algorithm == 1 || (manager->algorithm == 3
-			&& disorder < 0.5 && disorder >= 0.2))
-		ft_range_sort(a, b, manager);
-	else if (manager->algorithm == 2 || (manager->algorithm == 3
-			&& disorder >= 0.5))
-		ft_radix_sort(a, b, manager);
 	ft_manage_algorithm(a, b, manager, disorder);
-	ft_free_all(manager, a, b, 0);
-	return (0);
+	return (ft_free_all(manager, a, b, 0), 0);
 }
