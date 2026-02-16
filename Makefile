@@ -6,7 +6,7 @@
 #    By: shierro <shierro@student.42urduliz.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/04 13:07:48 by iarrien-          #+#    #+#              #
-#    Updated: 2026/02/11 17:33:05 by shierro          ###   ########.fr        #
+#    Updated: 2026/02/13 12:58:55 by shierro          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,13 +46,15 @@ bonus: $(BONUSOBJ) $(BONUSHEADERS) $(HEADERS)
 
 clean:
 	rm -f $(OBJ)
+	rm -f $(BONUSOBJ)
 	$(MAKE) clean -C ./printf
 
 fclean: clean
 	rm -f $(NAME)
+	rm -f $(BONUSNAME)
 	rm -f $(LIB)
 	$(MAKE) fclean -C ./printf
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re bonus

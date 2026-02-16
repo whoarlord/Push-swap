@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_radix_sort.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iarrien- <iarrien-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: shierro <shierro@student.42urduliz.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 16:06:14 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/10 17:32:18 by iarrien-         ###   ########.fr       */
+/*   Updated: 2026/02/13 12:59:25 by shierro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static void	ft_fill_digits(int *array, t_stack *a, int bit)
 		array[0] = -1;
 }
 
-static void	ft_radix_sort_to(t_stack *origin, t_stack *dest, int *bit,
+static void	*ft_radix_sort_to(t_stack *origin, t_stack *dest, int *bit,
 		t_moves *bench)
 {
 	int	i;
@@ -43,12 +43,14 @@ static void	ft_radix_sort_to(t_stack *origin, t_stack *dest, int *bit,
 
 	size_before = origin->size;
 	array = ft_calloc(origin->size, sizeof(int));
+	if (!array)
+		return (NULL);
 	i = 0;
 	ft_fill_digits(array, origin, *bit);
 	if (array[0] == -1)
 	{
 		*bit = *bit + 1;
-		return ;
+		return (origin);
 	}
 	while (origin->size > 0)
 	{
@@ -59,6 +61,7 @@ static void	ft_radix_sort_to(t_stack *origin, t_stack *dest, int *bit,
 	}
 	*bit = *bit + 1;
 	free(array);
+	return (origin);
 }
 
 static void	ft_push_all(t_stack *origin, t_stack *dest, t_moves *bench)
@@ -101,11 +104,13 @@ void	ft_radix_sort(t_stack *a, t_stack *b, t_manager *manager)
 		ft_free_all(manager, a, b, 1);
 	if (manager->bench)
 		bench->bench = 1;
-	ft_fill_index_array(a);
+	if (!ft_fill_index_array(a))
+		return (free(bench), ft_free_all(manager, a, b, 1));
 	count = ft_calculate_bits(a->size);
 	while (i < count)
 	{
-		ft_radix_sort_to(a, b, &bit, bench);
+		if (!ft_radix_sort_to(a, b, &bit, bench))
+			return (free(bench), ft_free_all(manager, a, b, 1));
 		ft_push_all(b, a, bench);
 		i++;
 	}

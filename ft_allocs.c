@@ -6,7 +6,7 @@
 /*   By: iarrien- <iarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 17:50:23 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/11 10:59:27 by iarrien-         ###   ########.fr       */
+/*   Updated: 2026/02/16 12:18:44 by iarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,32 @@
 - number 3: adaptive
 */
 
-void	*ft_init_stacks(int size, char **numstr, t_stack *a, t_stack *b)
+static void	*ft_init_nums_stacks(int size, char **numstr,
+	t_stack *a, t_stack *b)
 {
-	int	i;
+	int		i;
+	long	result;
 
 	i = 0;
+	while (numstr[i])
+	{
+		result = ft_atol(numstr[i]);
+		if (result > INT_MAX || result < INT_MIN)
+			return (NULL);
+		a->nums[i] = result;
+		i++;
+	}
+	a->index = ft_calloc(size, sizeof(int));
+	if (!a->index)
+		return (NULL);
+	b->index = ft_calloc(size, sizeof(int));
+	if (!b->index)
+		return (NULL);
+	return (a);
+}
+
+void	*ft_init_stacks(int size, char **numstr, t_stack *a, t_stack *b)
+{
 	a->size = size;
 	a->type = 'a';
 	b->size = 0;
@@ -33,19 +54,8 @@ void	*ft_init_stacks(int size, char **numstr, t_stack *a, t_stack *b)
 		return (NULL);
 	b->nums = ft_calloc(size, sizeof(int));
 	if (!b->nums)
-		return (ft_free_stack(a), NULL);
-	while (numstr[i])
-	{
-		a->nums[i] = ft_atoi(numstr[i]);
-		i++;
-	}
-	a->index = ft_calloc(size, sizeof(int));
-	if (!a->index)
-		return (ft_free_stack(a), ft_free_stack(b), NULL);
-	b->index = ft_calloc(size, sizeof(int));
-	if (!b->index)
-		return (ft_free_stack(a), ft_free_stack(b), NULL);
-	return (a);
+		return (NULL);
+	return (ft_init_nums_stacks(size, numstr, a, b));
 }
 
 static void	ft_which_flag(t_manager *manager, char *flag)
@@ -72,9 +82,9 @@ t_manager	*ft_fill_manager(int argc, char *argv[])
 	i = 1;
 	manager = ft_calloc(1, sizeof(t_manager));
 	if (!manager)
-		exit(1);
+		ft_free_all(NULL, NULL, NULL, 1);
 	manager->algorithm = 3;
-	while (i < argc || manager->error)
+	while (i < argc && !manager->error)
 	{
 		if (ft_strnstr(argv[i], "--", 2))
 			ft_which_flag(manager, argv[i]);

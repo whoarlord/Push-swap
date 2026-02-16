@@ -6,7 +6,7 @@
 /*   By: iarrien- <iarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 13:01:58 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/11 12:57:11 by iarrien-         ###   ########.fr       */
+/*   Updated: 2026/02/11 16:18:11 by iarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_rotate(t_stack *stack)
 
 	i = 0;
 	if (stack->size <= 1)
-		return ("\0");
+		return ("");
 	while (i < stack->size - 1)
 	{
 		temp = stack->nums[i];

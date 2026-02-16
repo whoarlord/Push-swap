@@ -6,7 +6,7 @@
 /*   By: shierro <shierro@student.42urduliz.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 12:29:41 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/11 16:08:59 by shierro          ###   ########.fr       */
+/*   Updated: 2026/02/13 12:04:30 by shierro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,7 +117,8 @@ void	ft_range_sort(t_stack *a, t_stack *b, t_manager *manager)
 		ft_free_all(manager, a, b, 1);
 	if (manager->bench)
 		bench->bench = 1;
-	ft_fill_index_array(a);
+	if (!ft_fill_index_array(a))
+		return (free(bench), ft_free_all(manager, a, b, 1));
 	chunk = 0;
 	sqrt = ft_sqrt(a->size);
 	while (a->size)

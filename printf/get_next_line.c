@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iarrien- <iarrien-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: shierro <shierro@student.42urduliz.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/23 11:59:51 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/11 13:08:02 by iarrien-         ###   ########.fr       */
+/*   Updated: 2026/02/13 12:39:58 by shierro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-void	get_line_loop(int fd,
-	char f_buffer[BUFFER_SIZE + 1], char **result, int *i)
+void	get_line_loop(int fd, char f_buffer[BUFFER_SIZE + 1], char **result,
+		int *i)
 {
 	int		first;
 	char	*temp;
@@ -48,7 +48,7 @@ char	*get_next_line(int fd)
 	static int	i = BUFFER_SIZE;
 
 	result = malloc(1);
-	if (fd == -1)
+	if (fd == -1 || !result)
 		return (NULL);
 	result[0] = '\0';
 	get_line_loop(fd, f_buffer, &result, &i);
