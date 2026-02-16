@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: iarrien- <iarrien-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: shierro <shierro@student.42urduliz.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 13:26:15 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/16 12:19:30 by iarrien-         ###   ########.fr       */
+/*   Updated: 2026/02/16 13:27:31 by shierro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
-# include "printf/ft_printf.h"
 # include "limits.h"
+# include "printf/ft_printf.h"
 
 typedef struct s_manager
 {
@@ -109,4 +109,7 @@ void		ft_copy_to_src(t_indexed_num *src, t_indexed_num *tmp, int size);
 void		ft_print_array(t_indexed_num *array, int size);
 void		ft_strjoin_array(t_manager *manager, char *input);
 void		ft_range_sort(t_stack *a, t_stack *b, t_manager *manager);
+void		ft_sort_three_numbers(t_manager *manager, t_stack *a, t_stack *b);
+void		ft_three_numbers_bigger_first(t_moves *bench, t_stack *a);
+
 #endif
