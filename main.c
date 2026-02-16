@@ -6,7 +6,7 @@
 /*   By: iarrien- <iarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 13:04:02 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/16 17:23:41 by iarrien-         ###   ########.fr       */
+/*   Updated: 2026/02/16 17:28:01 by iarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ static void	ft_check_allocs(t_manager *manager, t_stack **a, t_stack **b,
 		ft_free_all(manager, *a, *b, 1);
 }
 
-static void	ft_manage_algorithm(t_stack *a, t_stack *b,
-	t_manager *manager, float disorder)
+static void	ft_manage_algorithm(t_stack *a, t_stack *b, t_manager *manager,
+		float disorder)
 {
 	if (manager->algorithm == 0 || (manager->algorithm == 3 && disorder < 0.2))
 		ft_selection_sort(a, b, manager);
@@ -70,6 +70,18 @@ int	main(int argc, char *argv[])
 			ft_free_all(manager, a, b, 1);
 		ft_free_all(manager, a, b, 0);
 	}
+	if (a->size == 3)
+		ft_sort_three_numbers(manager, a, b);
+	else if (manager->algorithm == 0 || (manager->algorithm == 3
+			&& disorder < 0.2))
+		ft_turk_sort(a, b, manager);
+	else if (manager->algorithm == 1 || (manager->algorithm == 3
+			&& disorder < 0.5 && disorder >= 0.2))
+		ft_range_sort(a, b, manager);
+	else if (manager->algorithm == 2 || (manager->algorithm == 3
+			&& disorder >= 0.5))
+		ft_radix_sort(a, b, manager);
+	return (ft_bench_fill_zeros(), ft_free_all(manager, a, b, 0), 0);
 	ft_manage_algorithm(a, b, manager, disorder);
 	ft_free_all(manager, a, b, 0);
 	return (0);
