@@ -6,7 +6,7 @@
 /*   By: iarrien- <iarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/09 13:19:20 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/16 15:29:34 by iarrien-         ###   ########.fr       */
+/*   Updated: 2026/02/16 17:26:09 by iarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,10 +98,15 @@ int	ft_put_in_bench(int algorithm, float disorder)
 	return (ft_putchar_fd('\n', 2), error);
 }
 
-void	ft_bench_fill_zeros(void)
+int	ft_bench_fill_zeros(int state)
 {
 	t_moves	*bench;
 
 	bench = ft_calloc(1, (sizeof(t_moves)));
-	ft_print_bench_moves(bench);
+	if (!bench)
+		return (1);
+	if (state)
+		ft_print_bench_moves(bench);
+	free(bench);
+	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: iarrien- <iarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 13:04:02 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/16 15:32:41 by iarrien-         ###   ########.fr       */
+/*   Updated: 2026/02/16 17:23:41 by iarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,11 @@ int	main(int argc, char *argv[])
 		if (ft_put_in_bench(manager->algorithm, disorder))
 			ft_free_all(manager, a, b, 1);
 	if (disorder == 0)
-		return (ft_bench_fill_zeros(), ft_free_all(manager, a, b, 0), 0);
+	{
+		if (ft_bench_fill_zeros(manager->bench))
+			ft_free_all(manager, a, b, 1);
+		ft_free_all(manager, a, b, 0);
+	}
 	ft_manage_algorithm(a, b, manager, disorder);
 	ft_free_all(manager, a, b, 0);
 	return (0);
