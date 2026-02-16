@@ -6,7 +6,7 @@
 /*   By: iarrien- <iarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 13:04:02 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/16 17:28:01 by iarrien-         ###   ########.fr       */
+/*   Updated: 2026/02/16 17:39:03 by iarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,6 @@ int	main(int argc, char *argv[])
 	else if (manager->algorithm == 2 || (manager->algorithm == 3
 			&& disorder >= 0.5))
 		ft_radix_sort(a, b, manager);
-	return (ft_bench_fill_zeros(), ft_free_all(manager, a, b, 0), 0);
 	ft_manage_algorithm(a, b, manager, disorder);
 	ft_free_all(manager, a, b, 0);
 	return (0);
