@@ -6,7 +6,7 @@
 /*   By: iarrien- <iarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 17:50:23 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/11 10:59:27 by iarrien-         ###   ########.fr       */
+/*   Updated: 2026/02/16 12:10:06 by iarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	*ft_init_stacks(int size, char **numstr, t_stack *a, t_stack *b)
 		return (ft_free_stack(a), NULL);
 	while (numstr[i])
 	{
-		a->nums[i] = ft_atoi(numstr[i]);
+		a->nums[i] = ft_atol(numstr[i]);
 		i++;
 	}
 	a->index = ft_calloc(size, sizeof(int));
