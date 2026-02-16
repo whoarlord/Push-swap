@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shierro <shierro@student.42urduliz.com>    +#+  +:+       +#+        */
+/*   By: iarrien- <iarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 13:26:15 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/16 16:59:22 by shierro          ###   ########.fr       */
+/*   Updated: 2026/02/16 17:28:15 by iarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ typedef struct s_chunk
 	int		size;
 }			t_chunk;
 
-void		ft_bench_fill_zeros(void);
+int			ft_bench_fill_zeros(int bench);
 int			ft_print_disorder(float disorder);
 void		ft_selection_sort(t_stack *a, t_stack *b, t_manager *manager);
 void		*ft_init_stacks(int size, char **numstr, t_stack *a, t_stack *b);
