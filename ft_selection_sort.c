@@ -6,7 +6,7 @@
 /*   By: iarrien- <iarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/16 13:18:14 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/16 13:52:44 by iarrien-         ###   ########.fr       */
+/*   Updated: 2026/02/16 14:03:59 by iarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,4 +64,3 @@ void	ft_selection_sort(t_stack *a, t_stack *b, t_manager *manager)
 		ft_print_bench_moves(bench);
 	free(bench);
 }
-

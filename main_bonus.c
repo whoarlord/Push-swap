@@ -6,7 +6,7 @@
 /*   By: iarrien- <iarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/11 12:57:42 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/16 12:13:06 by iarrien-         ###   ########.fr       */
+/*   Updated: 2026/02/16 16:02:34 by iarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ int	main(int argc, char *argv[])
 	b = NULL;
 	if (argc <= 1)
 		return (1);
-	manager = ft_fill_manager_checker(argc, argv);
+	manager = ft_fill_manager(argc, argv);
 	size = ft_validate_numinput(manager->numbers);
 	ft_check_allocs(manager, &a, &b, size);
 	moves = ft_check_input();

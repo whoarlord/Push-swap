@@ -6,7 +6,7 @@
 /*   By: iarrien- <iarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 13:26:15 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/16 13:56:16 by iarrien-         ###   ########.fr       */
+/*   Updated: 2026/02/16 15:29:06 by iarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ typedef struct s_chunk
 	int		size;
 }			t_chunk;
 
+void		ft_bench_fill_zeros(void);
 int			ft_print_disorder(float disorder);
 void		ft_selection_sort(t_stack *a, t_stack *b, t_manager *manager);
 void		*ft_init_stacks(int size, char **numstr, t_stack *a, t_stack *b);
