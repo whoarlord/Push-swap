@@ -6,7 +6,7 @@
 /*   By: iarrien- <iarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 12:31:47 by shierro           #+#    #+#             */
-/*   Updated: 2026/02/16 12:12:23 by iarrien-         ###   ########.fr       */
+/*   Updated: 2026/02/16 12:51:17 by iarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,40 @@ float	compute_disorder(t_stack *a)
 	return (result);
 }
 
-int	ft_atol(const char *nptr)
+static int	ft_isnegative(char c, long *i)
+{
+	int	result;
+
+	result = 0;
+	if (c == '-')
+	{
+		*i = *i + 1;
+		result = 1;
+	}
+	else if (c == '+')
+		*i = *i + 1;
+	return (result);
+}
+
+static int	ft_isspace(const char *str)
 {
 	int	i;
-	int	result;
-	int	negative;
+
+	i = 0;
+	while (*str == ' ' || *str == '\n' || *str == '\t'
+		|| *str == '\v' || *str == '\f' || *str == '\r')
+	{
+		str++;
+		i++;
+	}
+	return (i);
+}
+
+long	ft_atol(const char *nptr)
+{
+	long	i;
+	long	result;
+	int		negative;
 
 	i = ft_isspace(nptr);
 	result = 0;

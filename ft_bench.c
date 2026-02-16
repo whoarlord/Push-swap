@@ -3,14 +3,37 @@
 /*                                                        :::      ::::::::   */
 /*   ft_bench.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shierro <shierro@student.42urduliz.com>    +#+  +:+       +#+        */
+/*   By: iarrien- <iarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/09 13:19:20 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/13 11:44:25 by shierro          ###   ########.fr       */
+/*   Updated: 2026/02/16 12:53:59 by iarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+static void	ft_print_disorder_chars(float disorder, char *result)
+{
+	if (disorder == 0)
+	{
+		write(2, result, 1);
+		write(2, ".", 1);
+		write(2, result, 1);
+		write(2, result, 1);
+	}
+	else if (disorder == 10000)
+	{
+		write(2, result, 3);
+		write(2, ".", 1);
+		write(2, &result[1], 2);
+	}
+	else
+	{
+		write(2, result, 2);
+		write(2, ".", 1);
+		write(2, &result[2], 2);
+	}
+}
 
 static int	ft_print_disorder(float disorder)
 {
@@ -20,10 +43,8 @@ static int	ft_print_disorder(float disorder)
 	result = ft_itoa(disorder);
 	if (!result)
 		return (1);
-	write(2, result, 2);
-	write(2, ".", 1);
-	write(2, &result[2], 2);
-	ft_putstr_fd("%%", 2);
+	ft_print_disorder_chars(disorder, result);
+	ft_putchar_fd('%', 2);
 	free(result);
 	return (0);
 }
