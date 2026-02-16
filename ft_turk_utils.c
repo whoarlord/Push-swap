@@ -6,13 +6,13 @@
 /*   By: shierro <shierro@student.42urduliz.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/09 13:45:04 by shierro           #+#    #+#             */
-/*   Updated: 2026/02/09 17:14:20 by shierro          ###   ########.fr       */
+/*   Updated: 2026/02/13 11:50:21 by shierro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack	*ft_set_first_extremes(t_stack *stack)
+void	ft_set_first_extremes(t_stack *stack)
 {
 	if (stack->nums[0] > stack->nums[1])
 	{
@@ -24,7 +24,6 @@ t_stack	*ft_set_first_extremes(t_stack *stack)
 		stack->smallest = stack->nums[0];
 		stack->biggest = stack->nums[1];
 	}
-	return (stack);
 }
 
 void	ft_set_limits(int num, t_stack *stack)

@@ -6,7 +6,7 @@
 /*   By: shierro <shierro@student.42urduliz.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/09 13:19:20 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/11 14:48:07 by shierro          ###   ########.fr       */
+/*   Updated: 2026/02/13 11:44:25 by shierro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static int	ft_print_disorder(float disorder)
 {
 	char	*result;
 
-	disorder = disorder * 100000;
+	disorder = disorder * 10000;
 	result = ft_itoa(disorder);
 	if (!result)
 		return (1);
@@ -87,12 +87,12 @@ void	ft_check_bench(t_moves *bench, char *result)
 
 int	ft_put_in_bench(int algorithm, float disorder)
 {
-	int	check;
+	int	error;
 
 	ft_putstr_fd("[bench] disorder: ", 2);
-	check = ft_print_disorder(disorder);
-	if (check)
-		return (check);
+	error = ft_print_disorder(disorder);
+	if (error)
+		return (error);
 	write(2, "\n", 1);
 	ft_putstr_fd("[bench] algorithm: ", 2);
 	if (algorithm == 0)
@@ -111,5 +111,5 @@ int	ft_put_in_bench(int algorithm, float disorder)
 		else
 			ft_putstr_fd("O(n log n)", 2);
 	}
-	return (ft_putchar_fd('\n', 2), check);
+	return (ft_putchar_fd('\n', 2), error);
 }

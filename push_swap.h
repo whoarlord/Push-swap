@@ -6,7 +6,7 @@
 /*   By: shierro <shierro@student.42urduliz.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 13:26:15 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/11 14:05:34 by shierro          ###   ########.fr       */
+/*   Updated: 2026/02/13 11:50:36 by shierro          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ void		ft_find_cheapest_moves(t_stack *a, t_stack *b, t_moves *mmoves);
 int			ft_calculate_moves(t_stack *a, t_stack *b, int index,
 				t_moves *moves);
 int			ft_find_target_index(int num, t_stack *stack);
-t_stack		*ft_set_first_extremes(t_stack *stack);
+void		ft_set_first_extremes(t_stack *stack);
 void		ft_initmoves(t_moves *moves);
 void		ft_set_limits(int num, t_stack *stack);
 void		ft_check_bench(t_moves *bench, char *result);
