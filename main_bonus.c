@@ -6,7 +6,7 @@
 /*   By: iarrien- <iarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/11 12:57:42 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/16 16:02:34 by iarrien-         ###   ########.fr       */
+/*   Updated: 2026/02/17 11:54:49 by iarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,6 @@ int	main(int argc, char *argv[])
 	moves = ft_check_input();
 	if (!moves)
 		return (ft_free_all(manager, a, b, 1), 1);
-	ft_printf("%s\n", moves);
 	if (ft_loop_moves(a, b, moves))
 		return (free(moves), ft_free_all(manager, a, b, 1), 1);
 	if (b->size == 0 && compute_disorder(a) == 0)
