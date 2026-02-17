@@ -6,7 +6,7 @@
 /*   By: iarrien- <iarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 13:04:02 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/16 17:46:57 by iarrien-         ###   ########.fr       */
+/*   Updated: 2026/02/17 11:40:35 by iarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ static void	ft_manage_algorithm(t_stack *a, t_stack *b, t_manager *manager,
 {
 	if (a->size == 3)
 		ft_sort_three_numbers(manager, a, b);
-	else if (manager->algorithm == 0 ||
-		(manager->algorithm == 3 && disorder < 0.2))
+	else if (manager->algorithm == 0
+		|| (manager->algorithm == 3 && disorder < 0.2))
 		ft_selection_sort(a, b, manager);
 	else if (manager->algorithm == 1 || (manager->algorithm == 3
 			&& disorder < 0.5 && disorder >= 0.2))
