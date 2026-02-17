@@ -92,11 +92,11 @@ The Push Swap program will print the list of operations that takes place during 
 # Our Approach
 
 ## Simple Algorithm — `O(n²)`  
-### Turk Approach
+### Selection Sort Approach
 
 This algorithm orders stack B in descending order and then pushes every number back to A.
 
-It starts by pushing the first two numbers from A to B. Then, for each remaining number in A, it calculates which element would require the fewest movements to be placed in the correct position in B and moves it accordingly.
+It looks for the minimum number stacked in A and then pushes it to B, creating a descending order in B.
 
 ---
 
@@ -113,14 +113,11 @@ This ensures that the largest element in B is never farther than √n positions 
 ---
 
 ## Complex Algorithm — `O(n log n)`  
-### Radix Sort Approach
+### Turk Approach
 
-This algorithm sorts elements based on their least significant bit at each iteration.
+This algorithm orders stack B in descending order and then pushes every number back to A.
 
-It iterates through stack A, pushing elements to B according to the current bit being evaluated, then moves them back to A before proceeding to the next bit.
-
-Both this algorithm and the medium one operate on indexed values instead of raw input values.  
-For example, with 500 numbers, values are normalized to indexes ranging from `0` to `499`, ensuring consistent operation counts for radix sort.
+It starts by pushing the first two numbers from A to B. Then, for each remaining number in A, it calculates which element would require the fewest movements to be placed in the correct position in B and moves it accordingly. Although it is theoretically more demanding, in terms of push_swap movements makes the less movements possible.
 
 ---
 
@@ -136,6 +133,19 @@ The adaptive algorithm selects the strategy according to the disorder level:
 
 - **High disorder**: `disorder ≥ 0.5`  
   → Use **O(n log n)** algorithm.
+
+---
+  ### Extra - Radix Sort Approach
+
+Even though it is not featured in this version of Push Swap, we implemented the Radix Sort succesfully. However, it has not been as good in performance as the turk, so it has been sadly retired from the project.
+
+This algorithm sorts elements based on their least significant bit at each iteration.
+
+It iterates through stack A, pushing elements to B according to the current bit being evaluated, then moves them back to A before proceeding to the next bit.
+
+Both this algorithm and the medium one operate on indexed values instead of raw input values.  
+For example, with 500 numbers, values are normalized to indexes ranging from `0` to `499`, ensuring consistent operation counts for radix sort.
+
 
 ### Rationale
 
@@ -280,4 +290,4 @@ We also used AI-based tools to:
 
 # Contributions
 
-Both of us have worked on implementing functions that are used in all the cases: *iarrien-* implemented the radix sort algorithm, the functions to collect the numbers for the different versions of the program input, the push swaps functions and bench flag options, and worked in most part of the checker (bonus part). *shierro* implemented the turk sort algorithm, the validation for the input and the merge sort for ordering indexes. All the other parts were done mostly together, implementing some of the range sort functions, deciding the way of ordering data with defining structs, etc.
+Both of us have worked on implementing functions that are used in all the cases: *iarrien-* implemented the radix sort algorithm, the functions to collect the numbers for the different versions of the program input, the push swaps functions and bench flag options, and worked in most part of the checker (bonus part). *shierro* implemented the selection and turk sort algorithms, the validation for the input, the function for ordering three numbers, the merge sort for ordering indexes and the README file. All the other parts were done mostly together, implementing some of the range sort functions, deciding the way of ordering data with defining structs, etc.
