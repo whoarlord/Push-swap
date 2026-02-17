@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split_aux.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shierro <shierro@student.42urduliz.com>    +#+  +:+       +#+        */
+/*   By: iarrien- <iarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/09 17:08:56 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/13 11:16:59 by shierro          ###   ########.fr       */
+/*   Updated: 2026/02/17 11:28:28 by iarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,11 @@ void	ft_strjoin_array(t_manager *manager, char *input)
 	new_array = ft_split(input, ' ');
 	if (!new_array)
 		ft_free_all(manager, NULL, NULL, 1);
+	if (!new_array[0])
+	{
+		ft_free_split(new_array);
+		ft_free_all(manager, NULL, NULL, 1);
+	}
 	result = ft_fill_array(manager, new_array);
 	if (!result)
 		ft_free_all(manager, NULL, NULL, 1);

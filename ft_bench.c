@@ -6,7 +6,7 @@
 /*   By: iarrien- <iarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/09 13:19:20 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/16 17:26:09 by iarrien-         ###   ########.fr       */
+/*   Updated: 2026/02/17 11:57:10 by iarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ int	ft_put_in_bench(int algorithm, float disorder)
 		ft_putstr_fd("Complex / O(n log n)", 2);
 	if (algorithm == 3)
 	{
-		ft_putstr_fd("Adaptative / ", 2);
+		ft_putstr_fd("Adaptive / ", 2);
 		if (disorder < 0.2)
 			ft_putstr_fd("O(n^2)", 2);
 		else if (disorder < 0.5)
