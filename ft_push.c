@@ -6,7 +6,7 @@
 /*   By: iarrien- <iarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 19:20:51 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/06 10:58:43 by iarrien-         ###   ########.fr       */
+/*   Updated: 2026/02/11 16:18:20 by iarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,7 @@ static void	ft_offset(t_stack *stack, int direction)
 char	*ft_push(t_stack *dest, t_stack *src)
 {
 	if (src->size == 0)
-	{
-		if (dest->type == 'a')
-			return ("pa");
-		return ("pb");
-	}
+		return ("");
 	dest->size++;
 	ft_offset(dest, 0);
 	dest->nums[0] = src->nums[0];

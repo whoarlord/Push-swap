@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_allocs.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shierro <shierro@student.42urduliz.com>    +#+  +:+       +#+        */
+/*   By: iarrien- <iarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 17:50:23 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/13 11:27:04 by shierro          ###   ########.fr       */
+/*   Updated: 2026/02/16 12:18:44 by iarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,32 @@
 - number 3: adaptive
 */
 
-void	*ft_init_stacks(int size, char **numstr, t_stack *a, t_stack *b)
+static void	*ft_init_nums_stacks(int size, char **numstr,
+	t_stack *a, t_stack *b)
 {
-	int	i;
+	int		i;
+	long	result;
 
 	i = 0;
+	while (numstr[i])
+	{
+		result = ft_atol(numstr[i]);
+		if (result > INT_MAX || result < INT_MIN)
+			return (NULL);
+		a->nums[i] = result;
+		i++;
+	}
+	a->index = ft_calloc(size, sizeof(int));
+	if (!a->index)
+		return (NULL);
+	b->index = ft_calloc(size, sizeof(int));
+	if (!b->index)
+		return (NULL);
+	return (a);
+}
+
+void	*ft_init_stacks(int size, char **numstr, t_stack *a, t_stack *b)
+{
 	a->size = size;
 	a->type = 'a';
 	b->size = 0;
@@ -34,18 +55,7 @@ void	*ft_init_stacks(int size, char **numstr, t_stack *a, t_stack *b)
 	b->nums = ft_calloc(size, sizeof(int));
 	if (!b->nums)
 		return (NULL);
-	while (numstr[i])
-	{
-		a->nums[i] = ft_atoi(numstr[i]);
-		i++;
-	}
-	a->index = ft_calloc(size, sizeof(int));
-	if (!a->index)
-		return (NULL);
-	b->index = ft_calloc(size, sizeof(int));
-	if (!b->index)
-		return (NULL);
-	return (a);
+	return (ft_init_nums_stacks(size, numstr, a, b));
 }
 
 static void	ft_which_flag(t_manager *manager, char *flag)

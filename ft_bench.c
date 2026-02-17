@@ -3,30 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_bench.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shierro <shierro@student.42urduliz.com>    +#+  +:+       +#+        */
+/*   By: iarrien- <iarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/09 13:19:20 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/13 11:44:25 by shierro          ###   ########.fr       */
+/*   Updated: 2026/02/17 11:57:10 by iarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-static int	ft_print_disorder(float disorder)
-{
-	char	*result;
-
-	disorder = disorder * 10000;
-	result = ft_itoa(disorder);
-	if (!result)
-		return (1);
-	write(2, result, 2);
-	write(2, ".", 1);
-	write(2, &result[2], 2);
-	ft_putstr_fd("%%", 2);
-	free(result);
-	return (0);
-}
 
 void	ft_print_bench_moves(t_moves *bench)
 {
@@ -103,7 +87,7 @@ int	ft_put_in_bench(int algorithm, float disorder)
 		ft_putstr_fd("Complex / O(n log n)", 2);
 	if (algorithm == 3)
 	{
-		ft_putstr_fd("Adaptative / ", 2);
+		ft_putstr_fd("Adaptive / ", 2);
 		if (disorder < 0.2)
 			ft_putstr_fd("O(n^2)", 2);
 		else if (disorder < 0.5)
@@ -112,4 +96,17 @@ int	ft_put_in_bench(int algorithm, float disorder)
 			ft_putstr_fd("O(n log n)", 2);
 	}
 	return (ft_putchar_fd('\n', 2), error);
+}
+
+int	ft_bench_fill_zeros(int state)
+{
+	t_moves	*bench;
+
+	bench = ft_calloc(1, (sizeof(t_moves)));
+	if (!bench)
+		return (1);
+	if (state)
+		ft_print_bench_moves(bench);
+	free(bench);
+	return (0);
 }

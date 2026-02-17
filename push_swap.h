@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shierro <shierro@student.42urduliz.com>    +#+  +:+       +#+        */
+/*   By: iarrien- <iarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 13:26:15 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/13 11:50:36 by shierro          ###   ########.fr       */
+/*   Updated: 2026/02/16 17:28:15 by iarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
+# include "limits.h"
 # include "printf/ft_printf.h"
 
 typedef struct s_manager
@@ -62,9 +63,11 @@ typedef struct s_chunk
 	int		size;
 }			t_chunk;
 
-void		ft_printmoves(t_moves *moves);
-void		ft_print_stack(t_stack *stack);
+int			ft_bench_fill_zeros(int bench);
+int			ft_print_disorder(float disorder);
+void		ft_selection_sort(t_stack *a, t_stack *b, t_manager *manager);
 void		*ft_init_stacks(int size, char **numstr, t_stack *a, t_stack *b);
+long		ft_atol(const char *nptr);
 t_manager	*ft_fill_manager(int argc, char *argv[]);
 char		*ft_swap(t_stack *stack);
 char		*ft_swap_both(t_stack *a, t_stack *b);
@@ -109,4 +112,7 @@ void		ft_copy_to_src(t_indexed_num *src, t_indexed_num *tmp, int size);
 void		ft_print_array(t_indexed_num *array, int size);
 void		ft_strjoin_array(t_manager *manager, char *input);
 void		ft_range_sort(t_stack *a, t_stack *b, t_manager *manager);
+void		ft_sort_three_numbers(t_manager *manager, t_stack *a, t_stack *b);
+void		ft_three_numbers_bigger_first(t_moves *bench, t_stack *a);
+
 #endif

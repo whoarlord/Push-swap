@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_utils.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: shierro <shierro@student.42urduliz.com>    +#+  +:+       +#+        */
+/*   By: iarrien- <iarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 12:31:47 by shierro           #+#    #+#             */
-/*   Updated: 2026/02/13 11:28:27 by shierro          ###   ########.fr       */
+/*   Updated: 2026/02/16 12:51:17 by iarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,5 +49,58 @@ float	compute_disorder(t_stack *a)
 		i++;
 	}
 	result = mistakes / total_pairs;
+	return (result);
+}
+
+static int	ft_isnegative(char c, long *i)
+{
+	int	result;
+
+	result = 0;
+	if (c == '-')
+	{
+		*i = *i + 1;
+		result = 1;
+	}
+	else if (c == '+')
+		*i = *i + 1;
+	return (result);
+}
+
+static int	ft_isspace(const char *str)
+{
+	int	i;
+
+	i = 0;
+	while (*str == ' ' || *str == '\n' || *str == '\t'
+		|| *str == '\v' || *str == '\f' || *str == '\r')
+	{
+		str++;
+		i++;
+	}
+	return (i);
+}
+
+long	ft_atol(const char *nptr)
+{
+	long	i;
+	long	result;
+	int		negative;
+
+	i = ft_isspace(nptr);
+	result = 0;
+	negative = ft_isnegative(nptr[i], &i);
+	while (nptr[i])
+	{
+		if (nptr[i] < '0' || nptr[i] > '9')
+		{
+			break ;
+		}
+		result = result * 10;
+		result = result + nptr[i] - 48;
+		i++;
+	}
+	if (negative)
+		result = result * -1;
 	return (result);
 }

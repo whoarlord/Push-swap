@@ -6,7 +6,7 @@
 /*   By: iarrien- <iarrien-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 18:05:05 by iarrien-          #+#    #+#             */
-/*   Updated: 2026/02/11 13:15:18 by iarrien-         ###   ########.fr       */
+/*   Updated: 2026/02/16 12:32:35 by iarrien-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,5 @@ void	ft_free_all(t_manager *manager, t_stack *a, t_stack *b, int error)
 		write(2, ("Error\n"), 6);
 		exit(1);
 	}
+	exit(0);
 }
